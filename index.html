@@ -229,13 +229,112 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/05/12/Redis%20%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" target="_self">
+        <a href="/2024/06/12/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%85%A5%E9%97%A8%E6%A6%82%E5%BF%B5/RocketMq/" target="_self">
+          
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/06/12/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%85%A5%E9%97%A8%E6%A6%82%E5%BF%B5/RocketMq/" target="_self">
+        <div>
+          为什么要保持订阅关系一致性  定义:  一个GroupId 下 要保证 topic 和 tag 一致  后果:  容易造成消息丢失  原因:  根据TopicGroup 注册到brocker 的时候 会循环覆盖。  手动ACK 应答机制 1234567891011121314151617181920212223//生产者import org.apache.rocketmq.spring.core
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-06-12 09:48" pubdate>
+              2024-06-12
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/05/13/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%85%A5%E9%97%A8%E6%A6%82%E5%BF%B5/Netty%20%E5%85%A5%E9%97%A8/" target="_self">
+          
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/05/13/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%85%A5%E9%97%A8%E6%A6%82%E5%BF%B5/Netty%20%E5%85%A5%E9%97%A8/" target="_self">
+        <div>
+          介绍Netty 是 _一个异步事件驱动的网络应用程序框架，用于快速开发可维护的高性能协议服务器和客户端。 特点:NIO：同步非阻塞网络编程模型 问题 为什么Netty 使用什么NIO 不适用AIO(异步非阻塞)  netty主体是Linux ,Windows 兼容不好 AIO 是接收数据需要预先分配缓存, 而不是 NIO 是接收时才需要分配缓存, 所以对连接数量非常大但流量小的情况, 内存浪费很多
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-13 10:25" pubdate>
+              2024-05-13
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/25/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E7%94%A8SQL%E8%AE%B0%E5%BD%95-Mysql%208.0/" target="_self">
+          
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/04/25/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E7%94%A8SQL%E8%AE%B0%E5%BD%95-Mysql%208.0/" target="_self">
+        <div>
+          连续数字   123456789WITH RECURSIVE cte (num) AS(  SELECT 1  UNION ALL  SELECT num+1 FROM cte WHERE num &lt; 30)SELECT *FROM cte; 连续日期 年月日 SELECT * FROM  ( WITH RECURSIVE cte (date_for) AS (   SELECT DATE(
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-25 17:55" pubdate>
+              2024-04-25
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/05/12/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/Redis%20%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" target="_self">
           Redis集群搭建
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/05/12/Redis%20%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/05/12/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/Redis%20%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" target="_self">
         <div>
           利用工具搭建Redis集群
         </div>
@@ -273,13 +372,132 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2022/12/09/MINIO/" target="_self">
+        <a href="/2023/05/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6/" target="_self">
+          自定义持久层困框架
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/05/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6/" target="_self">
+        <div>
+          本质对JDBC 进行封装
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-05-10 00:00" pubdate>
+              2023-05-10
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Mysql/">#Mysql</a>
+            
+              <a href="/tags/Myabtis/">#Myabtis</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/04/12/%E8%87%AA%E5%BB%BA/%E5%8A%9F%E8%83%BD%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81/%E9%82%AE%E4%BB%B6/" target="_self">
+          利用时间监听推送邮件
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/04/12/%E8%87%AA%E5%BB%BA/%E5%8A%9F%E8%83%BD%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81/%E9%82%AE%E4%BB%B6/" target="_self">
+        <div>
+          引用hutool 和 事件监听 来完成异步推送邮件
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-04-12 00:00" pubdate>
+              2023-04-12
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/java/">#java</a>
+            
+              <a href="/tags/%E9%82%AE%E4%BB%B6/">#邮件</a>
+            
+              <a href="/tags/SpringCloud/">#SpringCloud</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/03/08/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89SQL%E6%B3%A8%E5%85%A5%E5%99%A8/" target="_self">
+          
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/03/08/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89SQL%E6%B3%A8%E5%85%A5%E5%99%A8/" target="_self">
+        <div>
+          自定义Mapper   extends BaseMapper  增加方法 自己增加的方法  需要 extends AbstractMethod 方法 重写注入器   extends DefaultSqlInjector 重写 getMethodList 方法  记得 内部调用 super.getMethodList 方法
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-03-08 14:42" pubdate>
+              2023-03-08
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2022/12/09/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/MINIO/" target="_self">
           Minio 选型
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/09/MINIO/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/09/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/MINIO/" target="_self">
         <div>
           对比了 OSS 和 传统的硬盘文件系统
         </div>
@@ -296,6 +514,15 @@
         
         
         
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">#文件系统</a>
+            
+              <a href="/tags/OSS/">#OSS</a>
+            
+          </div>
+        
       </div>
     </article>
   </div>
@@ -306,13 +533,46 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2022/10/10/java/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/" target="_self">
+        <a href="/2022/11/11/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%85%A5%E9%97%A8%E6%A6%82%E5%BF%B5/Docker%E5%9F%BA%E6%9C%AC/" target="_self">
+          Dokcer 配置相关
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/11/11/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%85%A5%E9%97%A8%E6%A6%82%E5%BF%B5/Docker%E5%9F%BA%E6%9C%AC/" target="_self">
+        <div>
+          Docker使用windwos 容器位于:\wsl$\docker-desktop-data\version-pack-data\community\docker\containers 端口映射:1. 创建容器时映射1docker run -d -p 50001:22 -p 53306:3306 --privileged --name centos8 chenzhongxian/learn:v0.
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-11-11 00:00" pubdate>
+              2022-11-11
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2022/10/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/" target="_self">
           自定义Mybatis 插件
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/10/java/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/" target="_self">
         <div>
           通过 实现 Interceptor 来新增拦截器
         </div>
@@ -332,49 +592,9 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/java/">#java</a>
-            
               <a href="/tags/Myabtis/">#Myabtis</a>
             
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/10/09/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-          搭建个人博客
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/09/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-        <div>
-          利用github Page 功能搭建博客
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-10-09 00:00" pubdate>
-              2022-10-09
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/github/">#github</a>
+              <a href="/tags/java/">#java</a>
             
           </div>
         
@@ -383,6 +603,12 @@
   </div>
 
 
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
 
 
 

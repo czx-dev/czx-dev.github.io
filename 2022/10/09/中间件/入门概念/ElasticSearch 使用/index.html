@@ -19,26 +19,23 @@
   <meta name="author" content="czx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="利用工具搭建Redis集群">
+    <meta name="description" content="ElasticSearch 使用&#x2F;_cat查看使用 put 请求或者post 保存数据   &#x2F; _update 会对比数据  数据没变化贼不叠加 版本 不加 _update,只会迭代版本号   ?_seq_no&#x3D;1&amp;_primary_term&#x3D;1  乐观锁修改需要加上这个查询参数  get 请求  查询数据   delete 删除数据 批量操作  &#x2F;bluk &#x2F;_search 查询语句 “">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis集群搭建">
-<meta property="og:url" content="http://example.com/2023/05/12/Redis%20%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:title" content="有意思的博客">
+<meta property="og:url" content="http://example.com/2022/10/09/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%85%A5%E9%97%A8%E6%A6%82%E5%BF%B5/ElasticSearch%20%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="有意思的博客">
-<meta property="og:description" content="利用工具搭建Redis集群">
+<meta property="og:description" content="ElasticSearch 使用&#x2F;_cat查看使用 put 请求或者post 保存数据   &#x2F; _update 会对比数据  数据没变化贼不叠加 版本 不加 _update,只会迭代版本号   ?_seq_no&#x3D;1&amp;_primary_term&#x3D;1  乐观锁修改需要加上这个查询参数  get 请求  查询数据   delete 删除数据 批量操作  &#x2F;bluk &#x2F;_search 查询语句 “">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-05-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-11T01:42:08.171Z">
+<meta property="article:published_time" content="2022-10-09T15:15:09.589Z">
+<meta property="article:modified_time" content="2025-03-11T01:44:52.659Z">
 <meta property="article:author" content="czx">
-<meta property="article:tag" content="redis">
-<meta property="article:tag" content="linux">
-<meta property="article:tag" content="集群">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Redis集群搭建 - 有意思的博客</title>
+  <title>有意思的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Redis集群搭建"></span>
+            <span id="subtitle" data-typed-text=""></span>
           
         </div>
 
@@ -215,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-12 00:00" pubdate>
-          2023年5月12日 凌晨
+        <time datetime="2022-10-09 23:15" pubdate>
+          2022年10月9日 晚上
         </time>
       </span>
     
@@ -227,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          450 字
+          280 字
         
       </span>
     
@@ -238,7 +235,7 @@
         
         
         
-          4 分钟
+          3 分钟
         
       </span>
     
@@ -275,18 +272,40 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Redis集群搭建</h1>
+            <h1 id="seo-header"></h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="下载官方工具-redis-trib"><a href="#下载官方工具-redis-trib" class="headerlink" title="下载官方工具(redis-trib)"></a>下载官方工具(redis-trib)</h2><h3 id="1-redis-trib-需要ruby环境-可能需要镜像安装"><a href="#1-redis-trib-需要ruby环境-可能需要镜像安装" class="headerlink" title="1. redis-trib 需要ruby环境 可能需要镜像安装"></a>1. redis-trib 需要ruby环境 可能需要镜像安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install ruby rubygems -y<br></code></pre></td></tr></table></figure>
-<h3 id="2-创建集群"><a href="#2-创建集群" class="headerlink" title="2. 创建集群"></a>2. 创建集群</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">进入redis安装目录</span><br>cd reids安装目录/src<br><span class="hljs-meta prompt_"># </span><span class="language-bash">创建集群 <span class="hljs-comment"># --replicas 每个主节点都有从节点 -a 密码认证</span></span><br>redis-trib create -a 123456 --replicas ip:prot ip:port<br></code></pre></td></tr></table></figure>
-<p>说明:  一主一从 是为了防止集群挂掉  Redis 最多 16384个哈希槽  在创建集群时分配 在存入数据时进行CRC16(key) % 16384计算放入哈希槽 主节点挂掉从节点会顶替</p>
-<h3 id="3-增加主节点"><a href="#3-增加主节点" class="headerlink" title="3. 增加主节点"></a>3. 增加主节点</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">使用如下命令即可添加节点将一个新的节点添加到集群中</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">-a 密码认证(没有密码不用带此参数)</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--cluster add-node 添加节点 新节点IP:新节点端口 任意存活节点IP:任意存活节点端口</span><br>./bin/redis-cli -a 123456 --cluster add-node 192.168.100.104:8007 192.168.100.101:8001<br><span class="hljs-meta prompt_"># </span><span class="language-bash">重新分配哈希槽  all 表示所有</span><br>./bin/redis-cli --cluster reshard 192.168.100.101:8002<br><br></code></pre></td></tr></table></figure>
-<h3 id="4-增加从节点"><a href="#4-增加从节点" class="headerlink" title="4. 增加从节点"></a>4. 增加从节点</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">使用如下命令即可添加节点将一个新的节点添加到集群中</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">-a 密码认证(没有密码不用带此参数)</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--cluster add-node 添加节点 新节点IP:新节点端口 任意存活节点IP:任意存活节点端口</span><br>./bin/redis-cli -a 123456 --cluster add-node 192.168.100.104:8007 192.168.100.101:8001<br><span class="hljs-meta prompt_"># </span><span class="language-bash">连接redis</span><br>./bin/redis-cli<br><span class="hljs-meta prompt_"># </span><span class="language-bash">绑定主节点</span><br>CLUSTER REPLICATE 主节点ID<br></code></pre></td></tr></table></figure>
-<h3 id="5-删除节点"><a href="#5-删除节点" class="headerlink" title="5.删除节点"></a>5.删除节点</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">执行如下命令删除节点</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">-a 密码认证(没有密码不用带此参数)</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--cluster del-node 连接任意一个存活的节点IP:连接任意一个存活的节点端口 要删除节点ID</span> <br>./bin/redis-cli -a 123456 --cluster del-node 192.168.100.101:8002 8cf44439390dc9412813ad27c43858a6bb53365c<br><br></code></pre></td></tr></table></figure>
-<h3 id="6-重新分配槽"><a href="#6-重新分配槽" class="headerlink" title="6.重新分配槽"></a>6.重新分配槽</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shel"># -a 密码认证(没有密码不用带此参数)<br># --cluster rebalance 重新分配集群中的槽位<br>./bin/redis-cli -a 123456 --cluster rebalance 192.168.100.101:8002<br><br></code></pre></td></tr></table></figure>
+                <h1 id="ElasticSearch-使用"><a href="#ElasticSearch-使用" class="headerlink" title="ElasticSearch 使用"></a>ElasticSearch 使用</h1><p>/_cat查看使用</p>
+<p>put 请求或者post 保存数据 </p>
+<p> / _update 会对比数据  数据没变化贼不叠加 版本 不加 _update,只会迭代版本号 </p>
+<p> ?_seq_no=1&amp;_primary_term=1  乐观锁修改需要加上这个查询参数</p>
+<p> get 请求  查询数据  </p>
+<p>delete 删除数据</p>
+<p>批量操作  /bluk</p>
+<p>/_search 查询语句</p>
+<p>“query  “{}查询</p>
+<p>​        “match”:{} 分词查询   全文检索 然后打分</p>
+<p>​        “match_all”:查询所有</p>
+<p>​        “match_phrase”:{}  短语匹配 不分词</p>
+<p>​        match</p>
+<p>​        “sort”:排序 </p>
+<p>​        “from”:1,”size”:1 相当于 limt 起始 ,大小</p>
+<p>“term”:  {} 用于非文本字段查询</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs http">//查询 字段address| city 中 包含 mail | movico 的文档<br>GET 索引/_search<br>&#123;<br>	&quot;query&quot;&#123;<br>	&quot;multi_match&quot;:&#123;<br>	&quot;query&quot;:&quot;mall movico&quot;,<br>	&quot;fields&quot;:[&quot;address&quot;, &quot;city&quot;]<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs http">//查询 字段address| city 中 包含 mail | movico 的文档<br>GET 索引/_search<br>&#123;<br>	&quot;query&quot;&#123;<br>		&quot;bool&quot;:&#123;<br>		&quot;must&quot;:[&#123;&quot;match&quot;:&#123;&#125;&#125;,&#123;...&#125;]//必须满足<br>		&quot;must_not&quot;:[&#123;&#125;,&#123;&#125;]//必须不满足<br>		&quot;should&quot;:[&#123;&#125;,&#123;&#125;] //满足加分  不满足也可以<br>		&#125;	<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>“filter”:{}</p>
+<p>“aggs”:{“别名”:{聚合操作}</p>
+<p>​        ,:”aggs”:{同上}//输入为上步操作结果</p>
+<p>}</p>
+<p>“mapping”:{“</p>
+<p>​    “properties”:{</p>
+<p> 字段: 类型}    </p>
+<p>“}</p>
+
                 
               </div>
             
@@ -294,17 +313,6 @@
             <div>
               <div class="post-metas my-3">
   
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/redis/" class="print-no-link">#redis</a>
-      
-        <a href="/tags/linux/" class="print-no-link">#linux</a>
-      
-        <a href="/tags/%E9%9B%86%E7%BE%A4/" class="print-no-link">#集群</a>
-      
-    </div>
   
 </div>
 
@@ -314,8 +322,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Redis集群搭建</div>
-      <div>http://example.com/2023/05/12/Redis 集群搭建/</div>
+      <div></div>
+      <div>http://example.com/2022/10/09/中间件/入门概念/ElasticSearch 使用/</div>
     </div>
     <div class="license-meta">
       
@@ -327,7 +335,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月12日</div>
+          <div>2022年10月9日</div>
         </div>
       
       
@@ -359,12 +367,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2022/10/09/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/MQ(%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97)/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/12/09/MINIO/" title="Minio 选型">
-                        <span class="hidden-mobile">Minio 选型</span>
+                      <a href="/2022/10/09/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%85%A5%E9%97%A8%E6%A6%82%E5%BF%B5/Dubbo%20%E4%BD%BF%E7%94%A8/" title="">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
