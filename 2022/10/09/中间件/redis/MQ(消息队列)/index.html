@@ -19,25 +19,25 @@
   <meta name="author" content="czx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="docker 入门">
+    <meta name="description" content="Mq基本概念">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker 入门">
-<meta property="og:url" content="http://example.com/2021/02/18/%E4%B8%AD%E9%97%B4%E4%BB%B6/Docker%E5%9F%BA%E6%9C%AC/index.html">
+<meta property="og:title" content="Mq基本概念">
+<meta property="og:url" content="http://example.com/2022/10/09/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/MQ(%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97)/index.html">
 <meta property="og:site_name" content="有意思的博客">
-<meta property="og:description" content="docker 入门">
+<meta property="og:description" content="Mq基本概念">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-02-17T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-11T03:08:43.946Z">
+<meta property="article:published_time" content="2022-10-09T15:15:09.589Z">
+<meta property="article:modified_time" content="2025-03-11T03:09:28.668Z">
 <meta property="article:author" content="czx">
 <meta property="article:tag" content="基本概念">
-<meta property="article:tag" content="docker">
+<meta property="article:tag" content="Mq">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>docker 入门 - 有意思的博客</title>
+  <title>Mq基本概念 - 有意思的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +203,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="docker 入门"></span>
+            <span id="subtitle" data-typed-text="Mq基本概念"></span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2021-02-18 00:00" pubdate>
-          2021年2月18日 凌晨
+        <time datetime="2022-10-09 23:15" pubdate>
+          2022年10月9日 晚上
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          390 字
+          275 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          4 分钟
+          3 分钟
         
       </span>
     
@@ -274,28 +274,18 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">docker 入门</h1>
+            <h1 id="seo-header">Mq基本概念</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Docker使用"><a href="#Docker使用" class="headerlink" title="Docker使用"></a>Docker使用</h1><p>windwos 容器位于:\wsl$\docker-desktop-data\version-pack-data\community\docker\containers</p>
-<h2 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射:"></a>端口映射:</h2><h3 id="1-创建容器时映射"><a href="#1-创建容器时映射" class="headerlink" title="1. 创建容器时映射"></a>1. 创建容器时映射</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -d -p 50001:22 -p 53306:3306 --privileged --name centos8 chenzhongxian/learn:v0.1<br></code></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">参数说明:<br>-p 宿主机端口:容器端口<br>-d  后台运行<br>--name 容器名 <br>--privileged  解决挂载问题 权限  container内的root拥有真正的root权限。<br>chenzhongxian/learn:v0.1 远程仓库:tag<br></code></pre></td></tr></table></figure>
+                <h1 id="MQ-消息队列"><a href="#MQ-消息队列" class="headerlink" title="MQ(消息队列)"></a>MQ(消息队列)</h1><p>账号密码：admin</p>
+<h3 id="什么是中间件"><a href="#什么是中间件" class="headerlink" title="什么是中间件"></a>什么是中间件</h3><h6 id="实现跨平台通讯，高可用，持久化"><a href="#实现跨平台通讯，高可用，持久化" class="headerlink" title="实现跨平台通讯，高可用，持久化"></a>实现跨平台通讯，高可用，持久化</h6><h2 id="RabbitMq六种工作模式"><a href="#RabbitMq六种工作模式" class="headerlink" title="RabbitMq六种工作模式"></a>RabbitMq六种工作模式</h2><h4 id="Simple简单模式"><a href="#Simple简单模式" class="headerlink" title="Simple简单模式"></a>Simple简单模式</h4><h6 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h6><h4 id="Work模式"><a href="#Work模式" class="headerlink" title="Work模式"></a>Work模式</h4><h6 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h6><h5 id="两种消费模式"><a href="#两种消费模式" class="headerlink" title="两种消费模式"></a>两种消费模式</h5><h6 id="轮询模式"><a href="#轮询模式" class="headerlink" title="轮询模式"></a>轮询模式</h6><h6 id="公平分发模式：能者多多劳"><a href="#公平分发模式：能者多多劳" class="headerlink" title="公平分发模式：能者多多劳"></a>公平分发模式：能者多多劳</h6><h4 id="layout模式"><a href="#layout模式" class="headerlink" title="layout模式"></a>layout模式</h4><h6 id="一对多-交换机（不是默认的交换机）"><a href="#一对多-交换机（不是默认的交换机）" class="headerlink" title="一对多+交换机（不是默认的交换机）"></a>一对多+交换机（不是默认的交换机）</h6><h4 id="Routing模式"><a href="#Routing模式" class="headerlink" title="Routing模式"></a>Routing模式</h4><h6 id="增加route-key-对队列进行分组，消息分组发送"><a href="#增加route-key-对队列进行分组，消息分组发送" class="headerlink" title="增加route key 对队列进行分组，消息分组发送"></a>增加route key 对队列进行分组，消息分组发送</h6><h4 id="Topics-模式"><a href="#Topics-模式" class="headerlink" title="Topics 模式"></a>Topics 模式</h4><h6 id="支持模糊查询-多少都可以-一级"><a href="#支持模糊查询-多少都可以-一级" class="headerlink" title="支持模糊查询 # 多少都可以 , * 一级"></a>支持模糊查询 # 多少都可以 , * 一级</h6><h3 id="Springboot-整合"><a href="#Springboot-整合" class="headerlink" title="Springboot 整合"></a>Springboot 整合</h3><h6 id="1-导入依赖-amqp"><a href="#1-导入依赖-amqp" class="headerlink" title="1.导入依赖 amqp"></a>1.导入依赖 amqp</h6><h6 id="2-声明交换机，队列与关系"><a href="#2-声明交换机，队列与关系" class="headerlink" title="2.声明交换机，队列与关系"></a>2.声明交换机，队列与关系</h6><h6 id="3-利用-rabbitmqTemplate-发送消息"><a href="#3-利用-rabbitmqTemplate-发送消息" class="headerlink" title="3.利用 rabbitmqTemplate 发送消息"></a>3.利用 rabbitmqTemplate 发送消息</h6><h6 id="4-RabbitMqListener-queue-””-类-RabbitHandler-方法-参数需要有个Sting"><a href="#4-RabbitMqListener-queue-””-类-RabbitHandler-方法-参数需要有个Sting" class="headerlink" title="4. @RabbitMqListener(queue=””) 类 @RabbitHandler 方法 参数需要有个Sting"></a>4. @RabbitMqListener(queue=””) 类 @RabbitHandler 方法 参数需要有个Sting</h6><h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><h6 id="TTL：消息过期时间"><a href="#TTL：消息过期时间" class="headerlink" title="TTL：消息过期时间"></a>TTL：消息过期时间</h6><h6 id="死信队列：-当消息过期，被拒绝时存放的队列"><a href="#死信队列：-当消息过期，被拒绝时存放的队列" class="headerlink" title="死信队列： 当消息过期，被拒绝时存放的队列"></a>死信队列： 当消息过期，被拒绝时存放的队列</h6><h3 id="分布式应用"><a href="#分布式应用" class="headerlink" title="分布式应用"></a>分布式应用</h3><h6 id="可靠生产问题：跨平台事务回滚"><a href="#可靠生产问题：跨平台事务回滚" class="headerlink" title="可靠生产问题：跨平台事务回滚"></a>可靠生产问题：跨平台事务回滚</h6><h6 id="定时重发-：利用消息回执机制"><a href="#定时重发-：利用消息回执机制" class="headerlink" title="定时重发 ：利用消息回执机制"></a>定时重发 ：利用消息回执机制</h6><h6 id="消费者消费时出现异常会出现无限循环"><a href="#消费者消费时出现异常会出现无限循环" class="headerlink" title="消费者消费时出现异常会出现无限循环"></a>消费者消费时出现异常会出现无限循环</h6><h6 id="解决方案：1-配置重试次数"><a href="#解决方案：1-配置重试次数" class="headerlink" title="解决方案：1.配置重试次数"></a>解决方案：1.配置重试次数</h6> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">BindingBuilder.bind(queue).to(exchange).with(bindingKey)<br>参数说明:<br>queue:队列实例对象<br>exchange:交换机实例对象<br>   bindingKey: 绑定关系<br></code></pre></td></tr></table></figure>
 
 
 
-<h3 id="2-后续添加—已创建容器"><a href="#2-后续添加—已创建容器" class="headerlink" title="2. 后续添加—已创建容器"></a>2. 后续添加—已创建容器</h3><h4 id="1-docker-container-update-–restart-always-容器名字"><a href="#1-docker-container-update-–restart-always-容器名字" class="headerlink" title="1. docker container update –restart=always 容器名字"></a>1. docker container update –restart=always 容器名字</h4><h4 id="2-关闭docker"><a href="#2-关闭docker" class="headerlink" title="2.关闭docker"></a>2.关闭docker</h4><h4 id="3-修改容器下-config-v2-json"><a href="#3-修改容器下-config-v2-json" class="headerlink" title="3.修改容器下 config.v2.json"></a>3.修改容器下 config.v2.json</h4><p>​             K:容器端口</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-string">&quot;Config&quot;</span><span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;ExposedPorts&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">&#123;</span><br>            <span class="hljs-attr">&quot;22/tcp&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">&#123;</span><br><br>            <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-attr">&quot;3306/tcp&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">&#123;</span><br><br>            <span class="hljs-punctuation">&#125;</span><br>        <span class="hljs-punctuation">&#125;</span><br>	<span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+<p>``</p>
 
-<h4 id="4-修改hostconfig-json"><a href="#4-修改hostconfig-json" class="headerlink" title="4.修改hostconfig.json"></a>4.修改hostconfig.json</h4><p>​            K: 容器端口  V:{ “HostIp”:””, “HostPort”:”宿主机映射端口”}</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;PortBindings&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;22/tcp&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><br>            <span class="hljs-punctuation">&#123;</span><br>                <span class="hljs-attr">&quot;HostIp&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-attr">&quot;HostPort&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;50001&quot;</span><br>            <span class="hljs-punctuation">&#125;</span><br>        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;3306/tcp&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><br>            <span class="hljs-punctuation">&#123;</span><br>                <span class="hljs-attr">&quot;HostIp&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-attr">&quot;HostPort&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;53306&quot;</span><br>            <span class="hljs-punctuation">&#125;</span><br>        <span class="hljs-punctuation">]</span><br>    <span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
-
-<h5 id="5-docker-重启"><a href="#5-docker-重启" class="headerlink" title="5.docker 重启"></a>5.docker 重启</h5><h2 id="挂载卷"><a href="#挂载卷" class="headerlink" title="挂载卷:"></a>挂载卷:</h2><h3 id="1-创建容器时进行挂载"><a href="#1-创建容器时进行挂载" class="headerlink" title="1. 创建容器时进行挂载"></a>1. 创建容器时进行挂载</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">dockcer run -v 主机:容器<br></code></pre></td></tr></table></figure>
-<h3 id="2-后续添加已创建容器"><a href="#2-后续添加已创建容器" class="headerlink" title="2. 后续添加已创建容器"></a>2. 后续添加已创建容器</h3><h4 id="1-修改-hostconfig-json-文件-Binds-列表中增加-“主机目录-容器目录”"><a href="#1-修改-hostconfig-json-文件-Binds-列表中增加-“主机目录-容器目录”" class="headerlink" title="1. 修改 hostconfig.json 文件  Binds 列表中增加 “主机目录:容器目录”"></a>1. 修改 hostconfig.json 文件  Binds 列表中增加 “主机目录:容器目录”</h4><h3 id="2-修改-config-v2-json-文件"><a href="#2-修改-config-v2-json-文件" class="headerlink" title="2. 修改 config.v2.json 文件"></a>2. 修改 config.v2.json 文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs shell">&quot;MountPoints&quot;: &#123;<br> <br>&quot;/import（容器）&quot;: &#123;<br>            &quot;Source&quot;: &quot;/data（主机）&quot;,<br>            &quot;Destination&quot;: &quot;/import（容器）&quot;,<br>            &quot;RW&quot;: true,<br>            &quot;Name&quot;: &quot;&quot;,<br>            &quot;Driver&quot;: &quot;&quot;,<br>            &quot;Type&quot;: &quot;bind&quot;,<br>            &quot;Propagation&quot;: &quot;rprivate&quot;,<br>            &quot;Spec&quot;: &#123;<br>                &quot;Type&quot;: &quot;bind&quot;,<br>                &quot;Source&quot;: &quot;/data（主机）&quot;,<br>                &quot;Target&quot;: &quot;/import（容器）&quot;<br>            &#125;,<br>            &quot;SkipMountpointCreation&quot;: false<br>        &#125;<br><br></code></pre></td></tr></table></figure>
-
-<h1 id="Docker-compose"><a href="#Docker-compose" class="headerlink" title="Docker-compose"></a>Docker-compose</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>docker-compose是基于docker的开源项目，利用yaml配置文件对容器快速编排，只能对本机的docker进行处理。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -309,7 +299,7 @@
       
         <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="print-no-link">#基本概念</a>
       
-        <a href="/tags/docker/" class="print-no-link">#docker</a>
+        <a href="/tags/Mq/" class="print-no-link">#Mq</a>
       
     </div>
   
@@ -321,8 +311,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>docker 入门</div>
-      <div>http://example.com/2021/02/18/中间件/Docker基本/</div>
+      <div>Mq基本概念</div>
+      <div>http://example.com/2022/10/09/中间件/redis/MQ(消息队列)/</div>
     </div>
     <div class="license-meta">
       
@@ -334,7 +324,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2021年2月18日</div>
+          <div>2022年10月9日</div>
         </div>
       
       
