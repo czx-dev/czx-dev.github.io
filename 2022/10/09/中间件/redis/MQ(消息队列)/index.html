@@ -19,24 +19,25 @@
   <meta name="author" content="czx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="利用github Page 功能搭建博客">
+    <meta name="description" content="Mq基本概念">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建个人博客">
-<meta property="og:url" content="http://example.com/2022/10/09/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="Mq基本概念">
+<meta property="og:url" content="http://example.com/2022/10/09/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/MQ(%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97)/index.html">
 <meta property="og:site_name" content="有意思的博客">
-<meta property="og:description" content="利用github Page 功能搭建博客">
+<meta property="og:description" content="Mq基本概念">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-11T03:33:03.551Z">
+<meta property="article:published_time" content="2022-10-09T15:15:09.589Z">
+<meta property="article:modified_time" content="2025-03-11T03:17:59.577Z">
 <meta property="article:author" content="czx">
-<meta property="article:tag" content="github">
+<meta property="article:tag" content="基本概念">
+<meta property="article:tag" content="Mq">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>搭建个人博客 - 有意思的博客</title>
+  <title>Mq基本概念 - 有意思的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +203,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="搭建个人博客"></span>
+            <span id="subtitle" data-typed-text="Mq基本概念"></span>
           
         </div>
 
@@ -213,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-09 00:00" pubdate>
-          2022年10月9日 凌晨
+        <time datetime="2022-10-09 23:15" pubdate>
+          2022年10月9日 晚上
         </time>
       </span>
     
@@ -225,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          66 字
+          275 字
         
       </span>
     
@@ -236,7 +237,7 @@
         
         
         
-          1 分钟
+          3 分钟
         
       </span>
     
@@ -273,14 +274,17 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">搭建个人博客</h1>
+            <h1 id="seo-header">Mq基本概念</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h1><p>直接去看<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">github 官方地址-Fluid</a>就行 上面有具体的操作 </p>
-<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">移动到指定目录</span><br>cd ../source/_posts  <br><span class="hljs-meta prompt_"># </span><span class="language-bash">新建文件MakeDown 文件</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">清除缓存&amp;&amp;</span><br>npx hexo clean &amp;&amp; npx hexo generate &amp;&amp; npx hexo deploy<br></code></pre></td></tr></table></figure>
-<h1 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h1><p>屏蔽指定文件夹:  ignore</p>
+                <h1 id="MQ-消息队列"><a href="#MQ-消息队列" class="headerlink" title="MQ(消息队列)"></a>MQ(消息队列)</h1><p>账号密码：admin</p>
+<h3 id="什么是中间件"><a href="#什么是中间件" class="headerlink" title="什么是中间件"></a>什么是中间件</h3><h6 id="实现跨平台通讯，高可用，持久化"><a href="#实现跨平台通讯，高可用，持久化" class="headerlink" title="实现跨平台通讯，高可用，持久化"></a>实现跨平台通讯，高可用，持久化</h6><h2 id="RabbitMq六种工作模式"><a href="#RabbitMq六种工作模式" class="headerlink" title="RabbitMq六种工作模式"></a>RabbitMq六种工作模式</h2><h4 id="Simple简单模式"><a href="#Simple简单模式" class="headerlink" title="Simple简单模式"></a>Simple简单模式</h4><h6 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h6><h4 id="Work模式"><a href="#Work模式" class="headerlink" title="Work模式"></a>Work模式</h4><h6 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h6><h5 id="两种消费模式"><a href="#两种消费模式" class="headerlink" title="两种消费模式"></a>两种消费模式</h5><h6 id="轮询模式"><a href="#轮询模式" class="headerlink" title="轮询模式"></a>轮询模式</h6><h6 id="公平分发模式：能者多多劳"><a href="#公平分发模式：能者多多劳" class="headerlink" title="公平分发模式：能者多多劳"></a>公平分发模式：能者多多劳</h6><h4 id="layout模式"><a href="#layout模式" class="headerlink" title="layout模式"></a>layout模式</h4><h6 id="一对多-交换机（不是默认的交换机）"><a href="#一对多-交换机（不是默认的交换机）" class="headerlink" title="一对多+交换机（不是默认的交换机）"></a>一对多+交换机（不是默认的交换机）</h6><h4 id="Routing模式"><a href="#Routing模式" class="headerlink" title="Routing模式"></a>Routing模式</h4><h6 id="增加route-key-对队列进行分组，消息分组发送"><a href="#增加route-key-对队列进行分组，消息分组发送" class="headerlink" title="增加route key 对队列进行分组，消息分组发送"></a>增加route key 对队列进行分组，消息分组发送</h6><h4 id="Topics-模式"><a href="#Topics-模式" class="headerlink" title="Topics 模式"></a>Topics 模式</h4><h6 id="支持模糊查询-多少都可以-一级"><a href="#支持模糊查询-多少都可以-一级" class="headerlink" title="支持模糊查询 # 多少都可以 , * 一级"></a>支持模糊查询 # 多少都可以 , * 一级</h6><h3 id="Springboot-整合"><a href="#Springboot-整合" class="headerlink" title="Springboot 整合"></a>Springboot 整合</h3><h6 id="1-导入依赖-amqp"><a href="#1-导入依赖-amqp" class="headerlink" title="1.导入依赖 amqp"></a>1.导入依赖 amqp</h6><h6 id="2-声明交换机，队列与关系"><a href="#2-声明交换机，队列与关系" class="headerlink" title="2.声明交换机，队列与关系"></a>2.声明交换机，队列与关系</h6><h6 id="3-利用-rabbitmqTemplate-发送消息"><a href="#3-利用-rabbitmqTemplate-发送消息" class="headerlink" title="3.利用 rabbitmqTemplate 发送消息"></a>3.利用 rabbitmqTemplate 发送消息</h6><h6 id="4-RabbitMqListener-queue-””-类-RabbitHandler-方法-参数需要有个Sting"><a href="#4-RabbitMqListener-queue-””-类-RabbitHandler-方法-参数需要有个Sting" class="headerlink" title="4. @RabbitMqListener(queue=””) 类 @RabbitHandler 方法 参数需要有个Sting"></a>4. @RabbitMqListener(queue=””) 类 @RabbitHandler 方法 参数需要有个Sting</h6><h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><h6 id="TTL：消息过期时间"><a href="#TTL：消息过期时间" class="headerlink" title="TTL：消息过期时间"></a>TTL：消息过期时间</h6><h6 id="死信队列：-当消息过期，被拒绝时存放的队列"><a href="#死信队列：-当消息过期，被拒绝时存放的队列" class="headerlink" title="死信队列： 当消息过期，被拒绝时存放的队列"></a>死信队列： 当消息过期，被拒绝时存放的队列</h6><h3 id="分布式应用"><a href="#分布式应用" class="headerlink" title="分布式应用"></a>分布式应用</h3><h6 id="可靠生产问题：跨平台事务回滚"><a href="#可靠生产问题：跨平台事务回滚" class="headerlink" title="可靠生产问题：跨平台事务回滚"></a>可靠生产问题：跨平台事务回滚</h6><h6 id="定时重发-：利用消息回执机制"><a href="#定时重发-：利用消息回执机制" class="headerlink" title="定时重发 ：利用消息回执机制"></a>定时重发 ：利用消息回执机制</h6><h6 id="消费者消费时出现异常会出现无限循环"><a href="#消费者消费时出现异常会出现无限循环" class="headerlink" title="消费者消费时出现异常会出现无限循环"></a>消费者消费时出现异常会出现无限循环</h6><h6 id="解决方案：1-配置重试次数"><a href="#解决方案：1-配置重试次数" class="headerlink" title="解决方案：1.配置重试次数"></a>解决方案：1.配置重试次数</h6> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">BindingBuilder.bind(queue).to(exchange).with(bindingKey)<br>参数说明:<br>queue:队列实例对象<br>exchange:交换机实例对象<br>   bindingKey: 绑定关系<br></code></pre></td></tr></table></figure>
+
+
+
+<p>``</p>
 
                 
               </div>
@@ -293,7 +297,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/github/" class="print-no-link">#github</a>
+        <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="print-no-link">#基本概念</a>
+      
+        <a href="/tags/Mq/" class="print-no-link">#Mq</a>
       
     </div>
   
@@ -305,8 +311,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>搭建个人博客</div>
-      <div>http://example.com/2022/10/09/搭建个人博客/</div>
+      <div>Mq基本概念</div>
+      <div>http://example.com/2022/10/09/中间件/redis/MQ(消息队列)/</div>
     </div>
     <div class="license-meta">
       
@@ -345,23 +351,6 @@
 
 
 
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/10/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/" title="自定义Mybatis 插件">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">自定义Mybatis 插件</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                  </article>
-                </div>
               
             </div>
 

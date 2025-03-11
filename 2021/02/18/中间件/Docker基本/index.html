@@ -19,24 +19,25 @@
   <meta name="author" content="czx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="利用github Page 功能搭建博客">
+    <meta name="description" content="docker 入门">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建个人博客">
-<meta property="og:url" content="http://example.com/2022/10/09/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="docker 入门">
+<meta property="og:url" content="http://example.com/2021/02/18/%E4%B8%AD%E9%97%B4%E4%BB%B6/Docker%E5%9F%BA%E6%9C%AC/index.html">
 <meta property="og:site_name" content="有意思的博客">
-<meta property="og:description" content="利用github Page 功能搭建博客">
+<meta property="og:description" content="docker 入门">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-11T03:33:03.551Z">
+<meta property="article:published_time" content="2021-02-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-11T03:33:33.629Z">
 <meta property="article:author" content="czx">
-<meta property="article:tag" content="github">
+<meta property="article:tag" content="基本概念">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>搭建个人博客 - 有意思的博客</title>
+  <title>docker 入门 - 有意思的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +203,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="搭建个人博客"></span>
+            <span id="subtitle" data-typed-text="docker 入门"></span>
           
         </div>
 
@@ -213,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-09 00:00" pubdate>
-          2022年10月9日 凌晨
+        <time datetime="2021-02-18 00:00" pubdate>
+          2021年2月18日 凌晨
         </time>
       </span>
     
@@ -225,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          66 字
+          390 字
         
       </span>
     
@@ -236,7 +237,7 @@
         
         
         
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -273,15 +274,28 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">搭建个人博客</h1>
+            <h1 id="seo-header">docker 入门</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h1><p>直接去看<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">github 官方地址-Fluid</a>就行 上面有具体的操作 </p>
-<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">移动到指定目录</span><br>cd ../source/_posts  <br><span class="hljs-meta prompt_"># </span><span class="language-bash">新建文件MakeDown 文件</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">清除缓存&amp;&amp;</span><br>npx hexo clean &amp;&amp; npx hexo generate &amp;&amp; npx hexo deploy<br></code></pre></td></tr></table></figure>
-<h1 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h1><p>屏蔽指定文件夹:  ignore</p>
+                <h1 id="Docker使用"><a href="#Docker使用" class="headerlink" title="Docker使用"></a>Docker使用</h1><p>windwos 容器位于:\wsl$\docker-desktop-data\version-pack-data\community\docker\containers</p>
+<h2 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射:"></a>端口映射:</h2><h3 id="1-创建容器时映射"><a href="#1-创建容器时映射" class="headerlink" title="1. 创建容器时映射"></a>1. 创建容器时映射</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -d -p 50001:22 -p 53306:3306 --privileged --name centos8 chenzhongxian/learn:v0.1<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">参数说明:<br>-p 宿主机端口:容器端口<br>-d  后台运行<br>--name 容器名 <br>--privileged  解决挂载问题 权限  container内的root拥有真正的root权限。<br>chenzhongxian/learn:v0.1 远程仓库:tag<br></code></pre></td></tr></table></figure>
 
+
+
+<h3 id="2-后续添加—已创建容器"><a href="#2-后续添加—已创建容器" class="headerlink" title="2. 后续添加—已创建容器"></a>2. 后续添加—已创建容器</h3><h4 id="1-docker-container-update-–restart-always-容器名字"><a href="#1-docker-container-update-–restart-always-容器名字" class="headerlink" title="1. docker container update –restart=always 容器名字"></a>1. docker container update –restart=always 容器名字</h4><h4 id="2-关闭docker"><a href="#2-关闭docker" class="headerlink" title="2.关闭docker"></a>2.关闭docker</h4><h4 id="3-修改容器下-config-v2-json"><a href="#3-修改容器下-config-v2-json" class="headerlink" title="3.修改容器下 config.v2.json"></a>3.修改容器下 config.v2.json</h4><p>​             K:容器端口</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-string">&quot;Config&quot;</span><span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;ExposedPorts&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">&#123;</span><br>            <span class="hljs-attr">&quot;22/tcp&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">&#123;</span><br><br>            <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-attr">&quot;3306/tcp&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">&#123;</span><br><br>            <span class="hljs-punctuation">&#125;</span><br>        <span class="hljs-punctuation">&#125;</span><br>	<span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="4-修改hostconfig-json"><a href="#4-修改hostconfig-json" class="headerlink" title="4.修改hostconfig.json"></a>4.修改hostconfig.json</h4><p>​            K: 容器端口  V:{ “HostIp”:””, “HostPort”:”宿主机映射端口”}</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;PortBindings&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;22/tcp&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><br>            <span class="hljs-punctuation">&#123;</span><br>                <span class="hljs-attr">&quot;HostIp&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-attr">&quot;HostPort&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;50001&quot;</span><br>            <span class="hljs-punctuation">&#125;</span><br>        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;3306/tcp&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><br>            <span class="hljs-punctuation">&#123;</span><br>                <span class="hljs-attr">&quot;HostIp&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span><br>                <span class="hljs-attr">&quot;HostPort&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;53306&quot;</span><br>            <span class="hljs-punctuation">&#125;</span><br>        <span class="hljs-punctuation">]</span><br>    <span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="5-docker-重启"><a href="#5-docker-重启" class="headerlink" title="5.docker 重启"></a>5.docker 重启</h5><h2 id="挂载卷"><a href="#挂载卷" class="headerlink" title="挂载卷:"></a>挂载卷:</h2><h3 id="1-创建容器时进行挂载"><a href="#1-创建容器时进行挂载" class="headerlink" title="1. 创建容器时进行挂载"></a>1. 创建容器时进行挂载</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">dockcer run -v 主机:容器<br></code></pre></td></tr></table></figure>
+<h3 id="2-后续添加已创建容器"><a href="#2-后续添加已创建容器" class="headerlink" title="2. 后续添加已创建容器"></a>2. 后续添加已创建容器</h3><h4 id="1-修改-hostconfig-json-文件-Binds-列表中增加-“主机目录-容器目录”"><a href="#1-修改-hostconfig-json-文件-Binds-列表中增加-“主机目录-容器目录”" class="headerlink" title="1. 修改 hostconfig.json 文件  Binds 列表中增加 “主机目录:容器目录”"></a>1. 修改 hostconfig.json 文件  Binds 列表中增加 “主机目录:容器目录”</h4><h3 id="2-修改-config-v2-json-文件"><a href="#2-修改-config-v2-json-文件" class="headerlink" title="2. 修改 config.v2.json 文件"></a>2. 修改 config.v2.json 文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs shell">&quot;MountPoints&quot;: &#123;<br> <br>&quot;/import（容器）&quot;: &#123;<br>            &quot;Source&quot;: &quot;/data（主机）&quot;,<br>            &quot;Destination&quot;: &quot;/import（容器）&quot;,<br>            &quot;RW&quot;: true,<br>            &quot;Name&quot;: &quot;&quot;,<br>            &quot;Driver&quot;: &quot;&quot;,<br>            &quot;Type&quot;: &quot;bind&quot;,<br>            &quot;Propagation&quot;: &quot;rprivate&quot;,<br>            &quot;Spec&quot;: &#123;<br>                &quot;Type&quot;: &quot;bind&quot;,<br>                &quot;Source&quot;: &quot;/data（主机）&quot;,<br>                &quot;Target&quot;: &quot;/import（容器）&quot;<br>            &#125;,<br>            &quot;SkipMountpointCreation&quot;: false<br>        &#125;<br><br></code></pre></td></tr></table></figure>
+
+<h1 id="Docker-compose"><a href="#Docker-compose" class="headerlink" title="Docker-compose"></a>Docker-compose</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>docker-compose是基于docker的开源项目，利用yaml配置文件对容器快速编排，只能对本机的docker进行处理。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -293,7 +307,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/github/" class="print-no-link">#github</a>
+        <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="print-no-link">#基本概念</a>
+      
+        <a href="/tags/docker/" class="print-no-link">#docker</a>
       
     </div>
   
@@ -305,8 +321,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>搭建个人博客</div>
-      <div>http://example.com/2022/10/09/搭建个人博客/</div>
+      <div>docker 入门</div>
+      <div>http://example.com/2021/02/18/中间件/Docker基本/</div>
     </div>
     <div class="license-meta">
       
@@ -318,7 +334,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月9日</div>
+          <div>2021年2月18日</div>
         </div>
       
       
@@ -345,23 +361,6 @@
 
 
 
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/10/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/" title="自定义Mybatis 插件">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">自定义Mybatis 插件</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                  </article>
-                </div>
               
             </div>
 

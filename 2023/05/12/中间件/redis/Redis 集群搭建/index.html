@@ -19,24 +19,26 @@
   <meta name="author" content="czx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="利用github Page 功能搭建博客">
+    <meta name="description" content="利用工具搭建Redis集群">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建个人博客">
-<meta property="og:url" content="http://example.com/2022/10/09/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="Redis集群搭建">
+<meta property="og:url" content="http://example.com/2023/05/12/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/Redis%20%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="有意思的博客">
-<meta property="og:description" content="利用github Page 功能搭建博客">
+<meta property="og:description" content="利用工具搭建Redis集群">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-11T03:33:03.551Z">
+<meta property="article:published_time" content="2023-05-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-11T03:33:57.405Z">
 <meta property="article:author" content="czx">
-<meta property="article:tag" content="github">
+<meta property="article:tag" content="redis">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="集群">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>搭建个人博客 - 有意思的博客</title>
+  <title>Redis集群搭建 - 有意思的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="搭建个人博客"></span>
+            <span id="subtitle" data-typed-text="Redis集群搭建"></span>
           
         </div>
 
@@ -213,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-09 00:00" pubdate>
-          2022年10月9日 凌晨
+        <time datetime="2023-05-12 00:00" pubdate>
+          2023年5月12日 凌晨
         </time>
       </span>
     
@@ -225,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          66 字
+          450 字
         
       </span>
     
@@ -236,7 +238,7 @@
         
         
         
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -273,15 +275,18 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">搭建个人博客</h1>
+            <h1 id="seo-header">Redis集群搭建</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h1><p>直接去看<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">github 官方地址-Fluid</a>就行 上面有具体的操作 </p>
-<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">移动到指定目录</span><br>cd ../source/_posts  <br><span class="hljs-meta prompt_"># </span><span class="language-bash">新建文件MakeDown 文件</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">清除缓存&amp;&amp;</span><br>npx hexo clean &amp;&amp; npx hexo generate &amp;&amp; npx hexo deploy<br></code></pre></td></tr></table></figure>
-<h1 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h1><p>屏蔽指定文件夹:  ignore</p>
-
+                <h2 id="下载官方工具-redis-trib"><a href="#下载官方工具-redis-trib" class="headerlink" title="下载官方工具(redis-trib)"></a>下载官方工具(redis-trib)</h2><h3 id="1-redis-trib-需要ruby环境-可能需要镜像安装"><a href="#1-redis-trib-需要ruby环境-可能需要镜像安装" class="headerlink" title="1. redis-trib 需要ruby环境 可能需要镜像安装"></a>1. redis-trib 需要ruby环境 可能需要镜像安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install ruby rubygems -y<br></code></pre></td></tr></table></figure>
+<h3 id="2-创建集群"><a href="#2-创建集群" class="headerlink" title="2. 创建集群"></a>2. 创建集群</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">进入redis安装目录</span><br>cd reids安装目录/src<br><span class="hljs-meta prompt_"># </span><span class="language-bash">创建集群 <span class="hljs-comment"># --replicas 每个主节点都有从节点 -a 密码认证</span></span><br>redis-trib create -a 123456 --replicas ip:prot ip:port<br></code></pre></td></tr></table></figure>
+<p>说明:  一主一从 是为了防止集群挂掉  Redis 最多 16384个哈希槽  在创建集群时分配 在存入数据时进行CRC16(key) % 16384计算放入哈希槽 主节点挂掉从节点会顶替</p>
+<h3 id="3-增加主节点"><a href="#3-增加主节点" class="headerlink" title="3. 增加主节点"></a>3. 增加主节点</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">使用如下命令即可添加节点将一个新的节点添加到集群中</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">-a 密码认证(没有密码不用带此参数)</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--cluster add-node 添加节点 新节点IP:新节点端口 任意存活节点IP:任意存活节点端口</span><br>./bin/redis-cli -a 123456 --cluster add-node 192.168.100.104:8007 192.168.100.101:8001<br><span class="hljs-meta prompt_"># </span><span class="language-bash">重新分配哈希槽  all 表示所有</span><br>./bin/redis-cli --cluster reshard 192.168.100.101:8002<br><br></code></pre></td></tr></table></figure>
+<h3 id="4-增加从节点"><a href="#4-增加从节点" class="headerlink" title="4. 增加从节点"></a>4. 增加从节点</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">使用如下命令即可添加节点将一个新的节点添加到集群中</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">-a 密码认证(没有密码不用带此参数)</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--cluster add-node 添加节点 新节点IP:新节点端口 任意存活节点IP:任意存活节点端口</span><br>./bin/redis-cli -a 123456 --cluster add-node 192.168.100.104:8007 192.168.100.101:8001<br><span class="hljs-meta prompt_"># </span><span class="language-bash">连接redis</span><br>./bin/redis-cli<br><span class="hljs-meta prompt_"># </span><span class="language-bash">绑定主节点</span><br>CLUSTER REPLICATE 主节点ID<br></code></pre></td></tr></table></figure>
+<h3 id="5-删除节点"><a href="#5-删除节点" class="headerlink" title="5.删除节点"></a>5.删除节点</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">执行如下命令删除节点</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">-a 密码认证(没有密码不用带此参数)</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--cluster del-node 连接任意一个存活的节点IP:连接任意一个存活的节点端口 要删除节点ID</span> <br>./bin/redis-cli -a 123456 --cluster del-node 192.168.100.101:8002 8cf44439390dc9412813ad27c43858a6bb53365c<br><br></code></pre></td></tr></table></figure>
+<h3 id="6-重新分配槽"><a href="#6-重新分配槽" class="headerlink" title="6.重新分配槽"></a>6.重新分配槽</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shel"># -a 密码认证(没有密码不用带此参数)<br># --cluster rebalance 重新分配集群中的槽位<br>./bin/redis-cli -a 123456 --cluster rebalance 192.168.100.101:8002<br><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -293,7 +298,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/github/" class="print-no-link">#github</a>
+        <a href="/tags/redis/" class="print-no-link">#redis</a>
+      
+        <a href="/tags/linux/" class="print-no-link">#linux</a>
+      
+        <a href="/tags/%E9%9B%86%E7%BE%A4/" class="print-no-link">#集群</a>
       
     </div>
   
@@ -305,8 +314,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>搭建个人博客</div>
-      <div>http://example.com/2022/10/09/搭建个人博客/</div>
+      <div>Redis集群搭建</div>
+      <div>http://example.com/2023/05/12/中间件/redis/Redis 集群搭建/</div>
     </div>
     <div class="license-meta">
       
@@ -318,7 +327,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月9日</div>
+          <div>2023年5月12日</div>
         </div>
       
       
@@ -350,15 +359,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/10/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/" title="自定义Mybatis 插件">
+                      <a href="/2024/04/26/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E7%94%A8SQL%E8%AE%B0%E5%BD%95-Mysql%208.0/" title="开发中常用的特殊SQL 语句">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">自定义Mybatis 插件</span>
+                        <span class="hidden-mobile">开发中常用的特殊SQL 语句</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/05/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6/" title="自定义持久层困框架">
+                        <span class="hidden-mobile">自定义持久层困框架</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

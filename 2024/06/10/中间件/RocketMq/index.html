@@ -19,24 +19,24 @@
   <meta name="author" content="czx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="利用github Page 功能搭建博客">
+    <meta name="description" content="开发中RocketMq 遇到的问题 与解决方案">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建个人博客">
-<meta property="og:url" content="http://example.com/2022/10/09/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="RocketMq 注意机制">
+<meta property="og:url" content="http://example.com/2024/06/10/%E4%B8%AD%E9%97%B4%E4%BB%B6/RocketMq/index.html">
 <meta property="og:site_name" content="有意思的博客">
-<meta property="og:description" content="利用github Page 功能搭建博客">
+<meta property="og:description" content="开发中RocketMq 遇到的问题 与解决方案">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-11T03:33:03.551Z">
+<meta property="article:published_time" content="2024-06-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-11T03:34:01.881Z">
 <meta property="article:author" content="czx">
-<meta property="article:tag" content="github">
+<meta property="article:tag" content="RocketMq">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>搭建个人博客 - 有意思的博客</title>
+  <title>RocketMq 注意机制 - 有意思的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="搭建个人博客"></span>
+            <span id="subtitle" data-typed-text="RocketMq 注意机制"></span>
           
         </div>
 
@@ -213,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-09 00:00" pubdate>
-          2022年10月9日 凌晨
+        <time datetime="2024-06-10 00:00" pubdate>
+          2024年6月10日 凌晨
         </time>
       </span>
     
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          66 字
+          273 字
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          1 分钟
+          3 分钟
         
       </span>
     
@@ -273,15 +273,18 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">搭建个人博客</h1>
+            <h1 id="seo-header">RocketMq 注意机制</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h1><p>直接去看<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">github 官方地址-Fluid</a>就行 上面有具体的操作 </p>
-<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">移动到指定目录</span><br>cd ../source/_posts  <br><span class="hljs-meta prompt_"># </span><span class="language-bash">新建文件MakeDown 文件</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">清除缓存&amp;&amp;</span><br>npx hexo clean &amp;&amp; npx hexo generate &amp;&amp; npx hexo deploy<br></code></pre></td></tr></table></figure>
-<h1 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h1><p>屏蔽指定文件夹:  ignore</p>
-
+                <ol>
+<li><p>为什么要保持订阅关系一致性<br>  定义:  一个GroupId 下 要保证 topic 和 tag 一致<br>  后果:  容易造成消息丢失<br>  原因:  根据TopicGroup 注册到brocker 的时候 会循环覆盖。</p>
+</li>
+<li><p>手动ACK 应答机制</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//生产者</span><br><span class="hljs-keyword">import</span> org.apache.rocketmq.spring.core.RocketMQTemplate;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.boot.CommandLineRunner;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RocketMQProducer</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">CommandLineRunner</span> &#123;<br><br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> RocketMQTemplate rocketMQTemplate;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">(String... args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-comment">// 发送消息到指定的topic</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">topic</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;your_topic&quot;</span>;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hello, RocketMQ!&quot;</span>;<br>        rocketMQTemplate.convertAndSend(topic, message);<br>        System.out.println(<span class="hljs-string">&quot;Message sent: &quot;</span> + message);<br>    &#125;<br>&#125;<br><br><br></code></pre></td></tr></table></figure></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//消费者</span><br><span class="hljs-keyword">import</span> org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;<br><span class="hljs-keyword">import</span> org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;<br><span class="hljs-keyword">import</span> org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;<br><span class="hljs-keyword">import</span> org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;<br><span class="hljs-keyword">import</span> org.apache.rocketmq.client.exception.MQClientException;<br><span class="hljs-keyword">import</span> org.apache.rocketmq.common.message.MessageExt;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@RocketMQMessageListener( topictopic = ,  consumerGroup = ,  messageModel =  )</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RocketMQConsumer</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">MessageListenerConcurrently</span> &#123;<br><br>	<span class="hljs-comment">//自定ACK应答逻辑</span><br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-keyword">public</span> ConsumeConcurrentlyStatus <span class="hljs-title function_">consumeMessage</span><span class="hljs-params">(List&lt;MessageExt&gt; msgs, ConsumeConcurrentlyContext context)</span> &#123;<br>            <span class="hljs-keyword">for</span> (MessageExt messageExt : msgs) &#123;<br>                log.debug(<span class="hljs-string">&quot;received msg: &#123;&#125;&quot;</span>, messageExt);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    <span class="hljs-type">long</span> <span class="hljs-variable">now</span> <span class="hljs-operator">=</span> System.currentTimeMillis();<br>                    handleMessage(messageExt);<br>                    <span class="hljs-type">long</span> <span class="hljs-variable">costTime</span> <span class="hljs-operator">=</span> System.currentTimeMillis() - now;<br>	                <span class="hljs-comment">//消费逻辑</span><br>                    log.debug(<span class="hljs-string">&quot;consume &#123;&#125; cost: &#123;&#125; ms&quot;</span>, messageExt.getMsgId(), costTime);<br>                &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                    log.warn(<span class="hljs-string">&quot;consume message failed. messageId:&#123;&#125;, topic:&#123;&#125;, reconsumeTimes:&#123;&#125;&quot;</span>, messageExt.getMsgId(), messageExt.getTopic(), messageExt.getReconsumeTimes(), e);<br>                    context.setDelayLevelWhenNextConsume(delayLevelWhenNextConsume);<br>                    <span class="hljs-keyword">return</span> ConsumeConcurrentlyStatus.RECONSUME_LATER;<br>                &#125;<br>            &#125;<br><br>            <span class="hljs-keyword">return</span> ConsumeConcurrentlyStatus.CONSUME_SUCCESS;<br>        &#125;<br><br><br>&#125;<br><br><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -293,7 +296,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/github/" class="print-no-link">#github</a>
+        <a href="/tags/RocketMq/" class="print-no-link">#RocketMq</a>
       
     </div>
   
@@ -305,8 +308,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>搭建个人博客</div>
-      <div>http://example.com/2022/10/09/搭建个人博客/</div>
+      <div>RocketMq 注意机制</div>
+      <div>http://example.com/2024/06/10/中间件/RocketMq/</div>
     </div>
     <div class="license-meta">
       
@@ -318,7 +321,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月9日</div>
+          <div>2024年6月10日</div>
         </div>
       
       
@@ -345,23 +348,6 @@
 
 
 
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/10/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/" title="自定义Mybatis 插件">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">自定义Mybatis 插件</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                  </article>
-                </div>
               
             </div>
 

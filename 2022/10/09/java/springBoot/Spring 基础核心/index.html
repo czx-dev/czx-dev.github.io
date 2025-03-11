@@ -19,11 +19,15 @@
   <meta name="author" content="czx">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="有意思的博客">
-<meta property="og:url" content="http://example.com/index.html">
+    <meta name="description" content="Spring 基础核心">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring 基础核心">
+<meta property="og:url" content="http://example.com/2022/10/09/java/springBoot/Spring%20%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83/index.html">
 <meta property="og:site_name" content="有意思的博客">
+<meta property="og:description" content="Spring 基础核心">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-09T15:15:09.590Z">
+<meta property="article:modified_time" content="2025-03-11T03:34:10.380Z">
 <meta property="article:author" content="czx">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -31,11 +35,17 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>有意思的博客</title>
+  <title>Spring 基础核心 - 有意思的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -85,7 +95,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 100vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -191,17 +201,53 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="技术分享？不，是程序员的碎碎念"></span>
+            <span id="subtitle" data-typed-text="Spring 基础核心"></span>
           
         </div>
 
         
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-09 23:15" pubdate>
+          2022年10月9日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          172 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          2 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
 
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
       
     </div>
   </div>
@@ -213,321 +259,140 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          style="margin-top: 0">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Spring 基础核心</h1>
+            
+            
+              <div class="markdown-body">
                 
+                <h2 id="Spring-基础"><a href="#Spring-基础" class="headerlink" title="Spring 基础"></a>Spring 基础</h2><h3 id="IOC-控制反转"><a href="#IOC-控制反转" class="headerlink" title="IOC 控制反转"></a>IOC 控制反转</h3><h4 id="什么是IOC"><a href="#什么是IOC" class="headerlink" title="什么是IOC"></a>什么是IOC</h4><h6 id="核心：资源使用不由双方管理，交由第三方管理"><a href="#核心：资源使用不由双方管理，交由第三方管理" class="headerlink" title="核心：资源使用不由双方管理，交由第三方管理"></a>核心：资源使用不由双方管理，交由第三方管理</h6><h6 id="控制：控制对象"><a href="#控制：控制对象" class="headerlink" title="控制：控制对象"></a>控制：控制对象</h6><h6 id="反转：主动创建依赖对象–-gt-被动的接受依赖对象（谁使用时谁去传入）"><a href="#反转：主动创建依赖对象–-gt-被动的接受依赖对象（谁使用时谁去传入）" class="headerlink" title="反转：主动创建依赖对象–&gt;被动的接受依赖对象（谁使用时谁去传入）"></a>反转：主动创建依赖对象–&gt;被动的接受依赖对象（谁使用时谁去传入）</h6><h3 id="DI-依赖注入-IOC-的实现"><a href="#DI-依赖注入-IOC-的实现" class="headerlink" title="DI 依赖注入 IOC 的实现"></a>DI 依赖注入 IOC 的实现</h3><h6 id="依赖注入：set注入"><a href="#依赖注入：set注入" class="headerlink" title="依赖注入：set注入"></a>依赖注入：set注入</h6><h6 id="依赖：bean-对象依赖于spring-容器"><a href="#依赖：bean-对象依赖于spring-容器" class="headerlink" title="依赖：bean 对象依赖于spring 容器"></a>依赖：bean 对象依赖于spring 容器</h6><h6 id="注入：bean-对象的所有属性，由容器注入"><a href="#注入：bean-对象的所有属性，由容器注入" class="headerlink" title="注入：bean 对象的所有属性，由容器注入"></a>注入：bean 对象的所有属性，由容器注入</h6><h6 id="c-p-约束-简写配置"><a href="#c-p-约束-简写配置" class="headerlink" title="c/p 约束 简写配置"></a>c/p 约束 简写配置</h6><h3 id="自动装配-本质是依赖注入"><a href="#自动装配-本质是依赖注入" class="headerlink" title="自动装配 本质是依赖注入"></a>自动装配 本质是依赖注入</h3><h6 id="1-xml–-gt-autowrite-”ByName-Bytype”-根据set后面的属性名自动寻找"><a href="#1-xml–-gt-autowrite-”ByName-Bytype”-根据set后面的属性名自动寻找" class="headerlink" title="1.xml–&gt;autowrite=”ByName/Bytype” 根据set后面的属性名自动寻找"></a>1.xml–&gt;autowrite=”ByName/Bytype” 根据set后面的属性名自动寻找</h6><h6 id="2-AutoWrite-默认根据Bytype进行装配"><a href="#2-AutoWrite-默认根据Bytype进行装配" class="headerlink" title="2.@AutoWrite 默认根据Bytype进行装配"></a>2.@AutoWrite 默认根据Bytype进行装配</h6><h6 id="Nullable-说明这个值可以为null"><a href="#Nullable-说明这个值可以为null" class="headerlink" title="@Nullable 说明这个值可以为null"></a>@Nullable 说明这个值可以为null</h6><h6 id="Qualifer-指定bean-名"><a href="#Qualifer-指定bean-名" class="headerlink" title="@Qualifer() 指定bean 名"></a>@Qualifer() 指定bean 名</h6><p>Bean</p>
+<h6 id="循环依赖-利用3级缓存"><a href="#循环依赖-利用3级缓存" class="headerlink" title="循环依赖 利用3级缓存"></a>循环依赖 利用3级缓存</h6><p>​    </p>
 
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/04/26/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E7%94%A8SQL%E8%AE%B0%E5%BD%95-Mysql%208.0/" target="_self">
-          开发中常用的特殊SQL 语句
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/04/26/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E7%94%A8SQL%E8%AE%B0%E5%BD%95-Mysql%208.0/" target="_self">
-        <div>
-          开发中常用的特殊SQL语句
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-04-26 00:00" pubdate>
-              2024-04-26
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Mysql/">#Mysql</a>
-            
-              <a href="/tags/SQL/">#SQL</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/05/12/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/Redis%20%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" target="_self">
-          Redis集群搭建
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/05/12/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/Redis%20%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" target="_self">
-        <div>
-          利用工具搭建Redis集群
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-12 00:00" pubdate>
-              2023-05-12
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/redis/">#redis</a>
-            
-              <a href="/tags/linux/">#linux</a>
-            
-              <a href="/tags/%E9%9B%86%E7%BE%A4/">#集群</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/05/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6/" target="_self">
-          自定义持久层困框架
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/05/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6/" target="_self">
-        <div>
-          本质对JDBC 进行封装
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-10 00:00" pubdate>
-              2023-05-10
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Mysql/">#Mysql</a>
-            
-              <a href="/tags/Mybatis/">#Mybatis</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/04/12/%E8%87%AA%E5%BB%BA/%E5%8A%9F%E8%83%BD%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81/%E9%82%AE%E4%BB%B6/" target="_self">
-          利用事件监听推送邮件
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/04/12/%E8%87%AA%E5%BB%BA/%E5%8A%9F%E8%83%BD%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81/%E9%82%AE%E4%BB%B6/" target="_self">
-        <div>
-          引用hutool 和 事件监听 来完成异步推送邮件
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-12 00:00" pubdate>
-              2023-04-12
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/java/">#java</a>
-            
-              <a href="/tags/%E9%82%AE%E4%BB%B6/">#邮件</a>
-            
-              <a href="/tags/SpringCloud/">#SpringCloud</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/12/09/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/MINIO/" target="_self">
-          Minio 选型
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/09/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/MINIO/" target="_self">
-        <div>
-          对比了 OSS 和 传统的硬盘文件系统
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-09 00:00" pubdate>
-              2022-12-09
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">#文件系统</a>
-            
-              <a href="/tags/OSS/">#OSS</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/10/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/" target="_self">
-          自定义Mybatis 插件
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/" target="_self">
-        <div>
-          通过 实现 Interceptor 来新增拦截器
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-10-10 00:00" pubdate>
-              2022-10-10
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/java/">#java</a>
-            
-              <a href="/tags/Mybatis/">#Mybatis</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/10/09/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-          搭建个人博客
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/09/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-        <div>
-          利用github Page 功能搭建博客
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-10-09 00:00" pubdate>
-              2022-10-09
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/github/">#github</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
+                
               </div>
-            </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Spring 基础核心</div>
+      <div>http://example.com/2022/10/09/java/springBoot/Spring 基础核心/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>czx</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
           </div>
         </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
     
@@ -646,6 +511,99 @@
 
 
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
 
