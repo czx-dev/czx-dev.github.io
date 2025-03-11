@@ -19,25 +19,23 @@
   <meta name="author" content="czx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="本质对JDBC 进行封装">
+    <meta name="description" content="Spring 基础核心">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义持久层困框架">
-<meta property="og:url" content="http://example.com/2023/05/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6/index.html">
+<meta property="og:title" content="Spring 基础核心">
+<meta property="og:url" content="http://example.com/2022/10/09/java/springBoot/Spring%20%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83/index.html">
 <meta property="og:site_name" content="有意思的博客">
-<meta property="og:description" content="本质对JDBC 进行封装">
+<meta property="og:description" content="Spring 基础核心">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-05-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-11T03:08:12.342Z">
+<meta property="article:published_time" content="2022-10-09T15:15:09.590Z">
+<meta property="article:modified_time" content="2025-03-11T03:06:53.579Z">
 <meta property="article:author" content="czx">
-<meta property="article:tag" content="Mysql">
-<meta property="article:tag" content="Mybatis">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>自定义持久层困框架 - 有意思的博客</title>
+  <title>Spring 基础核心 - 有意思的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="自定义持久层困框架"></span>
+            <span id="subtitle" data-typed-text="Spring 基础核心"></span>
           
         </div>
 
@@ -214,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-10 00:00" pubdate>
-          2023年5月10日 凌晨
+        <time datetime="2022-10-09 23:15" pubdate>
+          2022年10月9日 晚上
         </time>
       </span>
     
@@ -226,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          519 字
+          172 字
         
       </span>
     
@@ -237,7 +235,7 @@
         
         
         
-          5 分钟
+          2 分钟
         
       </span>
     
@@ -274,41 +272,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">自定义持久层困框架</h1>
+            <h1 id="seo-header">Spring 基础核心</h1>
             
             
               <div class="markdown-body">
                 
-                <ol>
-<li><p>根据路径获取流</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Resouce.class.getClassLoader().getResourceAsStream(path)<br></code></pre></td></tr></table></figure></li>
-<li><p>解析XML 文件流 生成  Bean           </p>
-<ul>
-<li>configuation :  用于存放数据库连接相关配置                       </li>
-<li>mappedStatementMap  : 用于存放所有语句                             <ul>
-<li>key:  statementId 由 namespace + 标签Id 组成               </li>
-<li>value:  存放标签中各种属性值     </li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//利用dom4j 解析xml\</span><br><span class="hljs-type">Document</span> <span class="hljs-variable">document</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SAXReader</span>().read(inputStream);<br>element.attributeValue(<span class="hljs-string">&quot;每个标签单独的值&quot;</span>);<br><span class="hljs-comment">//Xml解析出来的对象放进Properties中</span><br>properties.setProperty(name,value);<br><span class="hljs-comment">//生成对应的DataSource </span><br><span class="hljs-type">ComboPooledDataSource</span> <span class="hljs-variable">comboPooledDataSource</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ComboPooledDataSource</span>();<br><span class="hljs-comment">//设置数据库连接属性</span><br><span class="hljs-comment">//放进自定义configuation 的datasrouce 属性中 方便后期使用</span><br><br><span class="hljs-comment">//获取xml文件路径 并且解析</span><br><span class="hljs-comment">//获取获取每个标签的值 生成mappedStatement </span><br><span class="hljs-comment">//追加到configuation 的 mappedStatementMap中 </span><br></code></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>创建sqlSessionFactory 对象<ul>
-<li>生产sqlSession:  </li>
-</ul>
-</li>
-<li>实现SqlSession 方法<ul>
-<li>selectList()</li>
-<li>update()</li>
-<li>….<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> &lt;E&gt; List&lt;E&gt; <span class="hljs-title function_">selectList</span><span class="hljs-params">(String statement,Object... params)</span>&#123;<br>	<span class="hljs-comment">//连接</span><br>	<span class="hljs-type">simpleExecutor</span> <span class="hljs-variable">simpleExecutor</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">simpleExecutor</span>();<br>	<span class="hljs-comment">//通过statementId  获取sql</span><br>	<span class="hljs-type">MappedStatement</span> <span class="hljs-variable">mappedStatement</span> <span class="hljs-operator">=</span> configuration.getMappedStatementMap().get(statementid);<br>	<span class="hljs-comment">//解析替换sql </span><br>	List&lt;Object&gt; list = simpleExecutor.query(configuration, mappedStatement, params);<br>	&#125;<br></code></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> &lt;E&gt; List&lt;E&gt; <span class="hljs-title function_">query</span><span class="hljs-params">(Configuration configuration, MappedStatement mappedStatement, Object... params)</span>&#123;<br><span class="hljs-comment">//创建驱动,获取连接</span><br><span class="hljs-comment">//获取替换后的sql ? 替换#&#123;?&#125;</span><br><span class="hljs-comment">//利用反射获取值</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; parameterMappingList.size(); i++) &#123;  <br>	<span class="hljs-comment">//获取 sql 中所需的 属性名</span><br>    <span class="hljs-type">ParameterMapping</span> <span class="hljs-variable">parameterMapping</span> <span class="hljs-operator">=</span> parameterMappingList.get(i);  <br>	<span class="hljs-type">String</span> <span class="hljs-variable">content</span> <span class="hljs-operator">=</span> parameterMapping.getContent();<br>	<span class="hljs-comment">//反射</span><br>	Class&lt;?&gt; paramtertypeClass = Class.forName(paramterType);<br>	<span class="hljs-type">Field</span> <span class="hljs-variable">declaredField</span> <span class="hljs-operator">=</span> paramtertypeClass.getDeclaredField(content);<br>	<span class="hljs-comment">//暴力访问</span><br>	declaredField.setAccessible(<span class="hljs-literal">true</span>);<br>	<span class="hljs-comment">//获取到入参对应属性的值</span><br>	<span class="hljs-type">Object</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span> declaredField.get(params[<span class="hljs-number">0</span>])<br>	<span class="hljs-comment">//执行sql 值设置</span><br>	preparedStatement.setObject(i+<span class="hljs-number">1</span>,o);<br><br>&#125;<br><span class="hljs-comment">//执行sql </span><br><span class="hljs-comment">//封装返回结果集</span><br>....<br></code></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java">	<span class="hljs-keyword">public</span> &lt;T&gt; T <span class="hljs-title function_">getMapper</span><span class="hljs-params">(Class&lt;?&gt; mapperClass)</span> &#123;  <br>    <span class="hljs-comment">// 使用JDK动态代理来为Dao接口生成代理对象，并返回  </span><br>	<span class="hljs-comment">//所有方法执行的时候都会调用invoke方法</span><br>	    <span class="hljs-type">Object</span> <span class="hljs-variable">proxyInstance</span> <span class="hljs-operator">=</span> Proxy.newProxyInstance(DefaultSqlSession.class.getClassLoader(), <span class="hljs-keyword">new</span> <span class="hljs-title class_">Class</span>[]&#123;mapperClass&#125;, <span class="hljs-keyword">new</span> <span class="hljs-title class_">InvocationHandler</span>() &#123;  <br>	        <span class="hljs-meta">@Override</span>  <br>	        <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span> <span class="hljs-keyword">throws</span> Throwable &#123;  <br>	            <span class="hljs-comment">// 底层都还是去执行JDBC代码 //根据不同情况，来调用selctList或者selectOne  </span><br>	            <span class="hljs-comment">// 准备参数 1：statmentid :sql语句的唯一标识：namespace.id= 接口全限定名.方法名  </span><br>	            <span class="hljs-comment">// 方法名：findAll  </span><br>	            <span class="hljs-type">String</span> <span class="hljs-variable">methodName</span> <span class="hljs-operator">=</span> method.getName();  <br>	            <span class="hljs-type">String</span> <span class="hljs-variable">className</span> <span class="hljs-operator">=</span> method.getDeclaringClass().getName();  <br>	  <br>	            <span class="hljs-type">String</span> <span class="hljs-variable">statementId</span> <span class="hljs-operator">=</span> className+<span class="hljs-string">&quot;.&quot;</span>+methodName;  <br>	  <br>	            <span class="hljs-comment">// 准备参数2：params:args  </span><br>	            <span class="hljs-comment">// 获取被调用方法的返回值类型  </span><br>	            <span class="hljs-type">Type</span> <span class="hljs-variable">genericReturnType</span> <span class="hljs-operator">=</span> method.getGenericReturnType();  <br>	            <span class="hljs-comment">// 判断是否进行了 泛型类型参数化  </span><br>	            <span class="hljs-keyword">if</span>(genericReturnType <span class="hljs-keyword">instanceof</span> ParameterizedType)&#123;  <br>	                List&lt;Object&gt; objects = selectList(statementId, args);  <br>	                <span class="hljs-keyword">return</span> objects;  <br>	            &#125;  <br>	            <span class="hljs-keyword">return</span> selectOne(statementId,args);  <br>	  <br>	        &#125;  <br>	    &#125;);  <br>  <br>	    <span class="hljs-keyword">return</span> (T) proxyInstance;  <br>&#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="Spring-基础"><a href="#Spring-基础" class="headerlink" title="Spring 基础"></a>Spring 基础</h2><h3 id="IOC-控制反转"><a href="#IOC-控制反转" class="headerlink" title="IOC 控制反转"></a>IOC 控制反转</h3><h4 id="什么是IOC"><a href="#什么是IOC" class="headerlink" title="什么是IOC"></a>什么是IOC</h4><h6 id="核心：资源使用不由双方管理，交由第三方管理"><a href="#核心：资源使用不由双方管理，交由第三方管理" class="headerlink" title="核心：资源使用不由双方管理，交由第三方管理"></a>核心：资源使用不由双方管理，交由第三方管理</h6><h6 id="控制：控制对象"><a href="#控制：控制对象" class="headerlink" title="控制：控制对象"></a>控制：控制对象</h6><h6 id="反转：主动创建依赖对象–-gt-被动的接受依赖对象（谁使用时谁去传入）"><a href="#反转：主动创建依赖对象–-gt-被动的接受依赖对象（谁使用时谁去传入）" class="headerlink" title="反转：主动创建依赖对象–&gt;被动的接受依赖对象（谁使用时谁去传入）"></a>反转：主动创建依赖对象–&gt;被动的接受依赖对象（谁使用时谁去传入）</h6><h3 id="DI-依赖注入-IOC-的实现"><a href="#DI-依赖注入-IOC-的实现" class="headerlink" title="DI 依赖注入 IOC 的实现"></a>DI 依赖注入 IOC 的实现</h3><h6 id="依赖注入：set注入"><a href="#依赖注入：set注入" class="headerlink" title="依赖注入：set注入"></a>依赖注入：set注入</h6><h6 id="依赖：bean-对象依赖于spring-容器"><a href="#依赖：bean-对象依赖于spring-容器" class="headerlink" title="依赖：bean 对象依赖于spring 容器"></a>依赖：bean 对象依赖于spring 容器</h6><h6 id="注入：bean-对象的所有属性，由容器注入"><a href="#注入：bean-对象的所有属性，由容器注入" class="headerlink" title="注入：bean 对象的所有属性，由容器注入"></a>注入：bean 对象的所有属性，由容器注入</h6><h6 id="c-p-约束-简写配置"><a href="#c-p-约束-简写配置" class="headerlink" title="c/p 约束 简写配置"></a>c/p 约束 简写配置</h6><h3 id="自动装配-本质是依赖注入"><a href="#自动装配-本质是依赖注入" class="headerlink" title="自动装配 本质是依赖注入"></a>自动装配 本质是依赖注入</h3><h6 id="1-xml–-gt-autowrite-”ByName-Bytype”-根据set后面的属性名自动寻找"><a href="#1-xml–-gt-autowrite-”ByName-Bytype”-根据set后面的属性名自动寻找" class="headerlink" title="1.xml–&gt;autowrite=”ByName/Bytype” 根据set后面的属性名自动寻找"></a>1.xml–&gt;autowrite=”ByName/Bytype” 根据set后面的属性名自动寻找</h6><h6 id="2-AutoWrite-默认根据Bytype进行装配"><a href="#2-AutoWrite-默认根据Bytype进行装配" class="headerlink" title="2.@AutoWrite 默认根据Bytype进行装配"></a>2.@AutoWrite 默认根据Bytype进行装配</h6><h6 id="Nullable-说明这个值可以为null"><a href="#Nullable-说明这个值可以为null" class="headerlink" title="@Nullable 说明这个值可以为null"></a>@Nullable 说明这个值可以为null</h6><h6 id="Qualifer-指定bean-名"><a href="#Qualifer-指定bean-名" class="headerlink" title="@Qualifer() 指定bean 名"></a>@Qualifer() 指定bean 名</h6><p>Bean</p>
+<h6 id="循环依赖-利用3级缓存"><a href="#循环依赖-利用3级缓存" class="headerlink" title="循环依赖 利用3级缓存"></a>循环依赖 利用3级缓存</h6><p>​    </p>
 
                 
               </div>
@@ -318,15 +288,6 @@
               <div class="post-metas my-3">
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Mysql/" class="print-no-link">#Mysql</a>
-      
-        <a href="/tags/Mybatis/" class="print-no-link">#Mybatis</a>
-      
-    </div>
-  
 </div>
 
 
@@ -335,8 +296,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>自定义持久层困框架</div>
-      <div>http://example.com/2023/05/10/java/mybatis/自定义持久层框架/</div>
+      <div>Spring 基础核心</div>
+      <div>http://example.com/2022/10/09/java/springBoot/Spring 基础核心/</div>
     </div>
     <div class="license-meta">
       
@@ -348,7 +309,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月10日</div>
+          <div>2022年10月9日</div>
         </div>
       
       
@@ -375,29 +336,6 @@
 
 
 
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2023/05/12/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/Redis%20%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" title="Redis集群搭建">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Redis集群搭建</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2023/04/12/%E8%87%AA%E5%BB%BA/%E5%8A%9F%E8%83%BD%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81/%E9%82%AE%E4%BB%B6/" title="利用事件监听推送邮件">
-                        <span class="hidden-mobile">利用事件监听推送邮件</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
               
             </div>
 
