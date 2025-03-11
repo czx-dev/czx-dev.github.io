@@ -19,23 +19,24 @@
   <meta name="author" content="czx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="介绍Netty 是 _一个异步事件驱动的网络应用程序框架，用于快速开发可维护的高性能协议服务器和客户端。 特点:NIO：同步非阻塞网络编程模型 问题 为什么Netty 使用什么NIO 不适用AIO(异步非阻塞)  netty主体是Linux ,Windows 兼容不好 AIO 是接收数据需要预先分配缓存, 而不是 NIO 是接收时才需要分配缓存, 所以对连接数量非常大但流量小的情况, 内存浪费很多">
+    <meta name="description" content="开发中RocketMq 遇到的问题 与解决方案">
 <meta property="og:type" content="article">
-<meta property="og:title" content="有意思的博客">
-<meta property="og:url" content="http://example.com/2024/05/13/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%85%A5%E9%97%A8%E6%A6%82%E5%BF%B5/Netty%20%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:title" content="RocketMq 注意机制">
+<meta property="og:url" content="http://example.com/2024/06/10/%E4%B8%AD%E9%97%B4%E4%BB%B6/RocketMq/index.html">
 <meta property="og:site_name" content="有意思的博客">
-<meta property="og:description" content="介绍Netty 是 _一个异步事件驱动的网络应用程序框架，用于快速开发可维护的高性能协议服务器和客户端。 特点:NIO：同步非阻塞网络编程模型 问题 为什么Netty 使用什么NIO 不适用AIO(异步非阻塞)  netty主体是Linux ,Windows 兼容不好 AIO 是接收数据需要预先分配缓存, 而不是 NIO 是接收时才需要分配缓存, 所以对连接数量非常大但流量小的情况, 内存浪费很多">
+<meta property="og:description" content="开发中RocketMq 遇到的问题 与解决方案">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-05-13T02:25:56.251Z">
-<meta property="article:modified_time" content="2024-05-13T12:17:43.699Z">
+<meta property="article:published_time" content="2024-06-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-11T02:34:04.589Z">
 <meta property="article:author" content="czx">
+<meta property="article:tag" content="RocketMq">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>有意思的博客</title>
+  <title>RocketMq 注意机制 - 有意思的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="RocketMq 注意机制"></span>
           
         </div>
 
@@ -212,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-05-13 10:25" pubdate>
-          2024年5月13日 上午
+        <time datetime="2024-06-10 00:00" pubdate>
+          2024年6月10日 凌晨
         </time>
       </span>
     
@@ -224,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          150 字
+          273 字
         
       </span>
     
@@ -235,7 +236,7 @@
         
         
         
-          2 分钟
+          3 分钟
         
       </span>
     
@@ -272,23 +273,18 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">RocketMq 注意机制</h1>
             
             
               <div class="markdown-body">
                 
-                <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>Netty 是 _一个异步事件驱动的网络应用程序框架，用于快速开发可维护的高性能协议服务器和客户端。</p>
-<p>特点:<br>NIO：同步非阻塞网络编程模型</p>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
-<li>为什么Netty 使用什么NIO 不适用AIO(异步非阻塞) <ol>
-<li>netty主体是Linux ,Windows 兼容不好</li>
-<li>AIO 是接收数据需要预先分配缓存, 而不是 NIO 是接收时才需要分配缓存, 所以对连接数量非常大但流量小的情况, 内存浪费很多</li>
-</ol>
+                <ol>
+<li><p>为什么要保持订阅关系一致性<br>  定义:  一个GroupId 下 要保证 topic 和 tag 一致<br>  后果:  容易造成消息丢失<br>  原因:  根据TopicGroup 注册到brocker 的时候 会循环覆盖。</p>
 </li>
-<li>拆包和粘包: http传输过程中有缓冲区</li>
+<li><p>手动ACK 应答机制</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//生产者</span><br><span class="hljs-keyword">import</span> org.apache.rocketmq.spring.core.RocketMQTemplate;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.boot.CommandLineRunner;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RocketMQProducer</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">CommandLineRunner</span> &#123;<br><br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> RocketMQTemplate rocketMQTemplate;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">(String... args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-comment">// 发送消息到指定的topic</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">topic</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;your_topic&quot;</span>;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hello, RocketMQ!&quot;</span>;<br>        rocketMQTemplate.convertAndSend(topic, message);<br>        System.out.println(<span class="hljs-string">&quot;Message sent: &quot;</span> + message);<br>    &#125;<br>&#125;<br><br><br></code></pre></td></tr></table></figure></li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><br></code></pre></td></tr></table></figure>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//消费者</span><br><span class="hljs-keyword">import</span> org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;<br><span class="hljs-keyword">import</span> org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;<br><span class="hljs-keyword">import</span> org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;<br><span class="hljs-keyword">import</span> org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;<br><span class="hljs-keyword">import</span> org.apache.rocketmq.client.exception.MQClientException;<br><span class="hljs-keyword">import</span> org.apache.rocketmq.common.message.MessageExt;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@RocketMQMessageListener( topictopic = ,  consumerGroup = ,  messageModel =  )</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RocketMQConsumer</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">MessageListenerConcurrently</span> &#123;<br><br>	<span class="hljs-comment">//自定ACK应答逻辑</span><br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-keyword">public</span> ConsumeConcurrentlyStatus <span class="hljs-title function_">consumeMessage</span><span class="hljs-params">(List&lt;MessageExt&gt; msgs, ConsumeConcurrentlyContext context)</span> &#123;<br>            <span class="hljs-keyword">for</span> (MessageExt messageExt : msgs) &#123;<br>                log.debug(<span class="hljs-string">&quot;received msg: &#123;&#125;&quot;</span>, messageExt);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    <span class="hljs-type">long</span> <span class="hljs-variable">now</span> <span class="hljs-operator">=</span> System.currentTimeMillis();<br>                    handleMessage(messageExt);<br>                    <span class="hljs-type">long</span> <span class="hljs-variable">costTime</span> <span class="hljs-operator">=</span> System.currentTimeMillis() - now;<br>	                <span class="hljs-comment">//消费逻辑</span><br>                    log.debug(<span class="hljs-string">&quot;consume &#123;&#125; cost: &#123;&#125; ms&quot;</span>, messageExt.getMsgId(), costTime);<br>                &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                    log.warn(<span class="hljs-string">&quot;consume message failed. messageId:&#123;&#125;, topic:&#123;&#125;, reconsumeTimes:&#123;&#125;&quot;</span>, messageExt.getMsgId(), messageExt.getTopic(), messageExt.getReconsumeTimes(), e);<br>                    context.setDelayLevelWhenNextConsume(delayLevelWhenNextConsume);<br>                    <span class="hljs-keyword">return</span> ConsumeConcurrentlyStatus.RECONSUME_LATER;<br>                &#125;<br>            &#125;<br><br>            <span class="hljs-keyword">return</span> ConsumeConcurrentlyStatus.CONSUME_SUCCESS;<br>        &#125;<br><br><br>&#125;<br><br><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -296,6 +292,13 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/RocketMq/" class="print-no-link">#RocketMq</a>
+      
+    </div>
   
 </div>
 
@@ -305,8 +308,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>http://example.com/2024/05/13/中间件/入门概念/Netty 入门/</div>
+      <div>RocketMq 注意机制</div>
+      <div>http://example.com/2024/06/10/中间件/RocketMq/</div>
     </div>
     <div class="license-meta">
       
@@ -318,7 +321,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年5月13日</div>
+          <div>2024年6月10日</div>
         </div>
       
       
@@ -345,29 +348,6 @@
 
 
 
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2024/06/12/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%85%A5%E9%97%A8%E6%A6%82%E5%BF%B5/RocketMq/" title="">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2024/04/25/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E7%94%A8SQL%E8%AE%B0%E5%BD%95-Mysql%208.0/" title="">
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
               
             </div>
 
