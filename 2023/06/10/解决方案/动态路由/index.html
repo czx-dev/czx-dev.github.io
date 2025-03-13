@@ -19,26 +19,26 @@
   <meta name="author" content="czx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="引用hutool 和 事件监听 来完成异步推送邮件">
+    <meta name="description" content="基于nacos 和gateway 实现动态路由功能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用事件监听推送邮件">
-<meta property="og:url" content="http://example.com/2023/04/12/%E8%87%AA%E5%BB%BA/%E5%8A%9F%E8%83%BD%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81/%E9%82%AE%E4%BB%B6/index.html">
+<meta property="og:title" content="老方法">
+<meta property="og:url" content="http://example.com/2023/06/10/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/index.html">
 <meta property="og:site_name" content="有意思的博客">
-<meta property="og:description" content="引用hutool 和 事件监听 来完成异步推送邮件">
+<meta property="og:description" content="基于nacos 和gateway 实现动态路由功能">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-04-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-11T03:33:08.749Z">
+<meta property="article:published_time" content="2023-06-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-13T02:42:02.729Z">
 <meta property="article:author" content="czx">
 <meta property="article:tag" content="java">
-<meta property="article:tag" content="邮件">
-<meta property="article:tag" content="SpringCloud">
+<meta property="article:tag" content="nacos">
+<meta property="article:tag" content="gateway">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>利用事件监听推送邮件 - 有意思的博客</title>
+  <title>老方法 - 有意思的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="利用事件监听推送邮件"></span>
+            <span id="subtitle" data-typed-text="老方法"></span>
           
         </div>
 
@@ -215,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-04-12 00:00" pubdate>
-          2023年4月12日 凌晨
+        <time datetime="2023-06-10 00:00" pubdate>
+          2023年6月10日 凌晨
         </time>
       </span>
     
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          238 字
+          0 字
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          2 分钟
+          1 分钟
         
       </span>
     
@@ -275,16 +275,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">利用事件监听推送邮件</h1>
+            <h1 id="seo-header">老方法</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="pom依赖"><a href="#pom依赖" class="headerlink" title="pom依赖:"></a>pom依赖:</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.hutool<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hutool-all<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;hutool.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.sun.mail<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jakarta.mail<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>  <br>	<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.6.3<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
-<h3 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h3><ol>
-<li>利用事件监听来推送邮件<h3 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SendEmailProvider</span> &#123;<br><br>    <span class="hljs-meta">@Resource</span><br>    <span class="hljs-keyword">private</span> ApplicationContext applicationContext;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 推送邮件</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> mail      接收邮箱</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> accountId 推送邮箱编号</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> nickName  发件人名称</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> title     标题</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> content   推送内容</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sendEmailMessage</span><span class="hljs-params">(String mail, Long accountId, String nickName, String title, String content)</span> &#123;<br>        <span class="hljs-type">SendEmailMessage</span> <span class="hljs-variable">sendEmailMessage</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SendEmailMessage</span>().setMail(mail)<br>                .setAccountId(accountId)<br>                .setNickname(nickName)<br>                .setTitle(title)<br>                .setContent(content);<br>        applicationContext.publishEvent(sendEmailMessage);<br><br>    &#125;<br><br>&#125;<br><br></code></pre></td></tr></table></figure></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@RefreshScope</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SendEmailConsumer</span> &#123;<br>    <span class="hljs-meta">@Value(&quot;$&#123;email.sendHost:smtp.qq.com&#125;&quot;)</span><br>    String sendHost;<br>    <span class="hljs-meta">@Value(&quot;$&#123;email.sendPort:25&#125;&quot;)</span><br>    Integer sendPort;<br><br>    <span class="hljs-meta">@Value(&quot;$&#123;email.user&#125;&quot;)</span><br>    String sendUser;<br>    <span class="hljs-meta">@Value(&quot;$&#123;email.password&#125;&quot;)</span><br>    String password;<br>    <br>    <span class="hljs-meta">@EventListener</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">onMessage</span><span class="hljs-params">(SendEmailMessage message)</span>&#123;<br>        <span class="hljs-comment">// 1. 创建发送账号</span><br>        <span class="hljs-type">MailAccount</span> <span class="hljs-variable">account</span> <span class="hljs-operator">=</span><span class="hljs-keyword">new</span> <span class="hljs-title class_">MailAccount</span>();<br>        <span class="hljs-comment">//构建推送参数</span><br>        account.setHost(sendHost);<br>        account.setPort(sendPort);<br>        account.setAuth(<span class="hljs-literal">true</span>);<br>        account.setFrom(sendUser);<br>        account.setUser(sendUser);<br>        account.setPass(password);<br>        <span class="hljs-comment">//推送</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">messageId</span> <span class="hljs-operator">=</span> MailUtil.send(account, message.getMail(),<br>                message.getTitle(), message.getContent(), <span class="hljs-literal">true</span>);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+                
                 
               </div>
             
@@ -298,9 +294,9 @@
       
         <a href="/tags/java/" class="print-no-link">#java</a>
       
-        <a href="/tags/%E9%82%AE%E4%BB%B6/" class="print-no-link">#邮件</a>
+        <a href="/tags/nacos/" class="print-no-link">#nacos</a>
       
-        <a href="/tags/SpringCloud/" class="print-no-link">#SpringCloud</a>
+        <a href="/tags/gateway/" class="print-no-link">#gateway</a>
       
     </div>
   
@@ -312,8 +308,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>利用事件监听推送邮件</div>
-      <div>http://example.com/2023/04/12/自建/功能关键代码/邮件/</div>
+      <div>老方法</div>
+      <div>http://example.com/2023/06/10/解决方案/动态路由/</div>
     </div>
     <div class="license-meta">
       
@@ -325,7 +321,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年4月12日</div>
+          <div>2023年6月10日</div>
         </div>
       
       
@@ -352,29 +348,6 @@
 
 
 
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2023/05/10/java/mybatis/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%81%E4%B9%85%E5%B1%82%E6%A1%86%E6%9E%B6/" title="自定义持久层框架">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">自定义持久层框架</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/12/09/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E9%80%89%E5%9E%8B/" title="文件存储选型">
-                        <span class="hidden-mobile">文件存储选型</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
               
             </div>
 
