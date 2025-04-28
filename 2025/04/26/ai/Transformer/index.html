@@ -19,29 +19,23 @@
   <meta name="author" content="czx">
   <meta name="keywords" content="">
   
-    <meta name="description" content="主要引入依赖 记录遇到的问题">
+    <meta name="description" content="基本概念 一个深度学习框架 优势：同时处理输入序列的所有部分 核心组件： [[#^7d3066|自注意力机制]]，[[#^4d9143|多头注意力]]，[[#^bf76ab|位置编码]]，[[#^790960|前馈网络]]核心组件介绍 自注意力机制 ^7d3066 评估每个词与句子中其他词的关系   多头注意力 ^4d9143 从不同的角度去考虑问题。   位置编码 ^bf76ab 记录词语所在的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="接入spring-ai-alibaba-starter">
-<meta property="og:url" content="http://example.com/2025/03/07/ai/%E6%8E%A5%E5%85%A5%E9%98%BF%E9%87%8C%E4%BA%91%E7%99%BE%E7%82%BC/index.html">
+<meta property="og:title" content="有意思的博客">
+<meta property="og:url" content="http://example.com/2025/04/26/ai/Transformer/index.html">
 <meta property="og:site_name" content="有意思的博客">
-<meta property="og:description" content="主要引入依赖 记录遇到的问题">
+<meta property="og:description" content="基本概念 一个深度学习框架 优势：同时处理输入序列的所有部分 核心组件： [[#^7d3066|自注意力机制]]，[[#^4d9143|多头注意力]]，[[#^bf76ab|位置编码]]，[[#^790960|前馈网络]]核心组件介绍 自注意力机制 ^7d3066 评估每个词与句子中其他词的关系   多头注意力 ^4d9143 从不同的角度去考虑问题。   位置编码 ^bf76ab 记录词语所在的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2025/03/07/ai/%E6%8E%A5%E5%85%A5%E9%98%BF%E9%87%8C%E4%BA%91%E7%99%BE%E7%82%BC/%E5%9B%BE%E7%89%871.png">
-<meta property="og:image" content="http://example.com/2025/03/07/ai/%E6%8E%A5%E5%85%A5%E9%98%BF%E9%87%8C%E4%BA%91%E7%99%BE%E7%82%BC/845b98c7f475db956ac30f6fb1b4c23.png">
-<meta property="og:image" content="http://example.com/2025/03/07/ai/%E6%8E%A5%E5%85%A5%E9%98%BF%E9%87%8C%E4%BA%91%E7%99%BE%E7%82%BC/%E5%9B%BE%E7%89%872.png">
-<meta property="article:published_time" content="2025-03-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-11T05:37:18.305Z">
+<meta property="article:published_time" content="2025-04-26T08:20:25.010Z">
+<meta property="article:modified_time" content="2025-04-26T08:55:54.573Z">
 <meta property="article:author" content="czx">
-<meta property="article:tag" content="SpringCloud">
-<meta property="article:tag" content="Ai">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2025/03/07/ai/%E6%8E%A5%E5%85%A5%E9%98%BF%E9%87%8C%E4%BA%91%E7%99%BE%E7%82%BC/%E5%9B%BE%E7%89%871.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>接入spring-ai-alibaba-starter - 有意思的博客</title>
+  <title>有意思的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -207,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="接入spring-ai-alibaba-starter"></span>
+            <span id="subtitle" data-typed-text=""></span>
           
         </div>
 
@@ -218,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-07 00:00" pubdate>
-          2025年3月7日 凌晨
+        <time datetime="2025-04-26 16:20" pubdate>
+          2025年4月26日 下午
         </time>
       </span>
     
@@ -230,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          333 字
+          191 字
         
       </span>
     
@@ -241,7 +235,7 @@
         
         
         
-          3 分钟
+          2 分钟
         
       </span>
     
@@ -278,21 +272,33 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">接入spring-ai-alibaba-starter</h1>
+            <h1 id="seo-header"></h1>
             
             
               <div class="markdown-body">
                 
-                <p>文档 ：<br><a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/model-studio/application-user-guide/?spm=a2c4g.11186623.help-menu-2400256.d_1.6e922562Fapzxs&scm=20140722.H_2840916._.OR_help-T_cn~zh-V_1">阿里云百炼-官方文档地址</a><br><a target="_blank" rel="noopener" href="https://java2ai.com/docs/1.0.0-M6.1/get-started/?spm=5176.29160081.0.0.2c69aa5cwWQo6O">Spring-Ai-Alibaba文档</a></p>
-<ol>
-<li> 创建获取Api Key :  <a target="_blank" rel="noopener" href="https://bailian.console.aliyun.com/?tab=model#/api-key">https://bailian.console.aliyun.com/?tab=model#/api-key</a></li>
-<li>创建应用获取appId<img src="%E5%9B%BE%E7%89%871.png" srcset="/img/loading.gif" lazyload></li>
-<li>引入依赖<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--阿里AI--&gt;</span>  <br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>  <br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba.cloud.ai<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>  <br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-ai-alibaba-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>  <br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0.0-M5.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>  <br></code></pre></td></tr></table></figure>
-注意： 如果是项目升级的话 一定要确认好  spring-cloud-alibaba-dependencies 的版本 要不会出现下方问题<br><img src="845b98c7f475db956ac30f6fb1b4c23.png" srcset="/img/loading.gif" lazyload></li>
-<li>配置文件<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>	<span class="hljs-attr">ai:</span><br>		<span class="hljs-attr">dashscope:</span><br>			<span class="hljs-attr">agent:</span><br>				<span class="hljs-attr">app-id:</span> <span class="hljs-comment">##########</span><br>			<span class="hljs-comment">#尚方获取的api_key 注意空间</span><br>			<span class="hljs-attr">api-key:</span> <span class="hljs-string">*********</span><br>			<span class="hljs-attr">chat:</span><br>				<span class="hljs-attr">options:</span><br>					<span class="hljs-comment">#模型名称</span><br>					<span class="hljs-attr">model:</span> <span class="hljs-string">qwen-max</span><br></code></pre></td></tr></table></figure></li>
-<li>java代码<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**  </span><br><span class="hljs-comment"> * 对话型机器人  </span><br><span class="hljs-comment"> *  </span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> 瑟瑟发抖  </span><br><span class="hljs-comment"> */</span>  <br><span class="hljs-meta">@RequestMapping(&quot;/ai&quot;)</span>  <br><span class="hljs-meta">@RestController</span>  <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ChatController</span> &#123;  <br>  <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">DEFAULT_PROMPT</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;你好 欢迎使用智能机器人&quot;</span>;  <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ChatClient dashScopeChatClient;  <br>    <span class="hljs-keyword">private</span> ChatRequest chatRequest;  <br>  <br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ChatController</span><span class="hljs-params">(ChatClient.Builder chatClientBuilder)</span> &#123;  <br>        <span class="hljs-built_in">this</span>.dashScopeChatClient = chatClientBuilder  <br>  <br>                .defaultSystem(DEFAULT_PROMPT)  <br>                <span class="hljs-comment">// 实现 Chat Memory 的 Advisor                // 在使用 Chat Memory 时，需要指定对话 ID，以便 Spring AI 处理上下文。  </span><br>                .defaultAdvisors(<span class="hljs-keyword">new</span> <span class="hljs-title class_">MessageChatMemoryAdvisor</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">InMemoryChatMemory</span>()))  <br>                <span class="hljs-comment">// 实现 Logger 的 Advisor                .defaultAdvisors(new SimpleLoggerAdvisor())  </span><br>                <span class="hljs-comment">// 设置 ChatClient 中 ChatModel 的 Options 参数  </span><br>                .defaultOptions(  <br>                        DashScopeChatOptions.builder()  <br>                                .withTopP(<span class="hljs-number">0.7</span>)  <br>                                .build()  <br>                )  <br>                .defaultAdvisors().build();  <br>  <br>    &#125;  <br>  <br>    <span class="hljs-comment">/**  </span><br><span class="hljs-comment">     * 简单的交流-一次性返回  </span><br><span class="hljs-comment">     *  </span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> chatRequest  </span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 响应内容  </span><br><span class="hljs-comment">     */</span>  <br>    <span class="hljs-meta">@PostMapping(value = &quot;/chat&quot;)</span>  <br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">chat</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> ChatRequest chatRequest)</span> &#123;  <br>        <span class="hljs-keyword">return</span>  dashScopeChatClient.prompt().user(chatRequest.getMessage()).call().content();  <br>    &#125;  <br>  <br>    <span class="hljs-comment">/**  </span><br><span class="hljs-comment">     * 流式交流  MediaType.TEXT_EVENT_STREAM_VALUE 必须要有的</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> chatRequest  </span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span>  </span><br><span class="hljs-comment">     */</span>  <br>    <span class="hljs-meta">@PostMapping(value = &quot;/fluxChat&quot;,produces = MediaType.TEXT_EVENT_STREAM_VALUE)</span>  <br>    <span class="hljs-keyword">public</span> Flux&lt;String&gt; <span class="hljs-title function_">fluxChat</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> ChatRequest chatRequest , HttpServletResponse response)</span> &#123;  <br>        Flux&lt;String&gt; content = dashScopeChatClient.prompt().user(chatRequest.getMessage())  <br>                .advisors(advisorSpec -&gt; advisorSpec.param(AbstractChatMemoryAdvisor.CHAT_MEMORY_RETRIEVE_SIZE_KEY,<span class="hljs-number">100</span>))  <br>                .stream().content();   <br>        <span class="hljs-keyword">return</span> content.concatWith(Flux.just(<span class="hljs-string">&quot;[complete]&quot;</span>));  <br>    &#125;  <br>&#125;<br><br></code></pre></td></tr></table></figure>
-ApiFox 效果图<br><img src="%E5%9B%BE%E7%89%872.png" srcset="/img/loading.gif" lazyload></li>
-</ol>
+                <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><ul>
+<li>一个深度学习框架</li>
+<li>优势：同时处理输入序列的所有部分</li>
+<li>核心组件： [[#^7d3066|自注意力机制]]，[[#^4d9143|多头注意力]]，[[#^bf76ab|位置编码]]，[[#^790960|前馈网络]]<h1 id="核心组件介绍"><a href="#核心组件介绍" class="headerlink" title="核心组件介绍"></a>核心组件介绍</h1></li>
+<li>自注意力机制 ^7d3066<ul>
+<li>评估每个词与句子中其他词的关系</li>
+</ul>
+</li>
+<li>多头注意力 ^4d9143<ul>
+<li>从不同的角度去考虑问题。</li>
+</ul>
+</li>
+<li>位置编码 ^bf76ab<ul>
+<li>记录词语所在的位置信息。</li>
+</ul>
+</li>
+<li>前馈网络 ^790960<ul>
+<li>接收自注意力层的信息进行处理。</li>
+<li>Transformer 一般有两层 ，一层是将自注意力层输入数据转化为更高维度数据，经过 激活函数，再一层将 高维度数据转化为 与 输入层一样维度的数据。</li>
+</ul>
+</li>
+</ul>
 
                 
               </div>
@@ -302,15 +308,6 @@ ApiFox 效果图<br><img src="%E5%9B%BE%E7%89%872.png" srcset="/img/loading.gif"
               <div class="post-metas my-3">
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/SpringCloud/" class="print-no-link">#SpringCloud</a>
-      
-        <a href="/tags/Ai/" class="print-no-link">#Ai</a>
-      
-    </div>
-  
 </div>
 
 
@@ -319,8 +316,8 @@ ApiFox 效果图<br><img src="%E5%9B%BE%E7%89%872.png" srcset="/img/loading.gif"
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>接入spring-ai-alibaba-starter</div>
-      <div>http://example.com/2025/03/07/ai/接入阿里云百炼/</div>
+      <div></div>
+      <div>http://example.com/2025/04/26/ai/Transformer/</div>
     </div>
     <div class="license-meta">
       
@@ -332,7 +329,7 @@ ApiFox 效果图<br><img src="%E5%9B%BE%E7%89%872.png" srcset="/img/loading.gif"
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月7日</div>
+          <div>2025年4月26日</div>
         </div>
       
       
@@ -364,18 +361,12 @@ ApiFox 效果图<br><img src="%E5%9B%BE%E7%89%872.png" srcset="/img/loading.gif"
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/04/21/%E7%AE%97%E6%B3%95/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" title="">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/26/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E7%94%A8SQL%E8%AE%B0%E5%BD%95-Mysql%208.0/" title="开发中常用的特殊SQL 语句">
-                        <span class="hidden-mobile">开发中常用的特殊SQL 语句</span>
+                      <a href="/2025/04/21/%E7%AE%97%E6%B3%95/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" title="">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
