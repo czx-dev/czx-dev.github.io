@@ -5,19 +5,6 @@
   
   <entry>
     <title></title>
-    <link href="/2025/04/26/ai/Transformer/"/>
-    <url>/2025/04/26/ai/Transformer/</url>
-    
-    <content type="html"><![CDATA[<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><ul><li>一个深度学习框架</li><li>优势：同时处理输入序列的所有部分</li><li>核心组件： [[#^7d3066|自注意力机制]]，[[#^4d9143|多头注意力]]，[[#^bf76ab|位置编码]]，[[#^790960|前馈网络]]<h1 id="核心组件介绍"><a href="#核心组件介绍" class="headerlink" title="核心组件介绍"></a>核心组件介绍</h1></li><li>自注意力机制 ^7d3066<ul><li>评估每个词与句子中其他词的关系</li></ul></li><li>多头注意力 ^4d9143<ul><li>从不同的角度去考虑问题。</li></ul></li><li>位置编码 ^bf76ab<ul><li>记录词语所在的位置信息。</li></ul></li><li>前馈网络 ^790960<ul><li>接收自注意力层的信息进行处理。</li><li>Transformer 一般有两层 ，一层是将自注意力层输入数据转化为更高维度数据，经过 激活函数，再一层将 高维度数据转化为 与 输入层一样维度的数据。</li></ul></li></ul>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title></title>
     <link href="/2025/04/21/%E7%AE%97%E6%B3%95/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
     <url>/2025/04/21/%E7%AE%97%E6%B3%95/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
     
