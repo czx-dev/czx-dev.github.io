@@ -15,6 +15,7 @@
 ```
 注意： 如果是项目升级的话 一定要确认好 spring-cloud-alibaba-dependencies 的版本 要不会出现下方问题
 4. 配置文件
+```j
 ```
 
 ```
