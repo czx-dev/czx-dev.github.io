@@ -186,6 +186,7 @@
   },
   "active": "c61a61f4cf8bc279",
   "lastOpenFiles": [
+    "上传/_config.yml",
     "上传/node_modules/commander/typings/index.d.ts",
     "上传/node_modules/commander/typings",
     "上传/package-lock.json",
@@ -196,7 +197,6 @@
     "上传/node_modules/hexo-theme-fluid/languages/ru.yml",
     "上传/node_modules/hexo-theme-fluid/languages/ja.yml",
     "上传/node_modules/hexo-theme-fluid/languages/es.yml",
-    "上传/node_modules/hexo-theme-fluid/languages/eo.yml",
     "上传/node_modules/hexo-theme-fluid/README.md",
     "上传/node_modules/hexo-theme-fluid/source/img/police_beian.png",
     "上传/node_modules/hexo-theme-fluid/source/img/loading.gif",
