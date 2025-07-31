@@ -32,59 +32,58 @@ spring:
 
 ```java
 /**  
-* 对话型机器人  
-*  
-* @author 瑟瑟发抖  
-*/  
+ * 对话型机器人  
+ *  
+ * @author 瑟瑟发抖  
+ */  
 @RequestMapping("/ai")  
 @RestController  
 public class ChatController {  
   
-private static final String DEFAULT_PROMPT = "你好 欢迎使用智能机器人";  
-private final ChatClient dashScopeChatClient;  
-private ChatRequest chatRequest;  
+    private static final String DEFAULT_PROMPT = "你好 欢迎使用智能机器人";  
+    private final ChatClient dashScopeChatClient;  
+    private ChatRequest chatRequest;  
   
-public ChatController(ChatClient.Builder chatClientBuilder) {  
-this.dashScopeChatClient = chatClientBuilder  
+    public ChatController(ChatClient.Builder chatClientBuilder) {  
+        this.dashScopeChatClient = chatClientBuilder  
   
-.defaultSystem(DEFAULT_PROMPT)  
-// 实现 Chat Memory 的 Advisor // 在使用 Chat Memory 时，需要指定对话 ID，以便 Spring AI 处理上下文。  
-.defaultAdvisors(new MessageChatMemoryAdvisor(new InMemoryChatMemory()))  
-// 实现 Logger 的 Advisor .defaultAdvisors(new SimpleLoggerAdvisor())  
-// 设置 ChatClient 中 ChatModel 的 Options 参数  
-.defaultOptions(  
-DashScopeChatOptions.builder()  
-.withTopP(0.7)  
-.build()  
-)  
-.defaultAdvisors().build();  
+                .defaultSystem(DEFAULT_PROMPT)  
+                // 实现 Chat Memory 的 Advisor                // 在使用 Chat Memory 时，需要指定对话 ID，以便 Spring AI 处理上下文。  
+                .defaultAdvisors(new MessageChatMemoryAdvisor(new InMemoryChatMemory()))  
+                // 实现 Logger 的 Advisor                .defaultAdvisors(new SimpleLoggerAdvisor())  
+                // 设置 ChatClient 中 ChatModel 的 Options 参数  
+                .defaultOptions(  
+                        DashScopeChatOptions.builder()  
+                                .withTopP(0.7)  
+                                .build()  
+                )  
+                .defaultAdvisors().build();  
   
-}  
+    }  
   
-/**  
-* 简单的交流-一次性返回  
-*  
-* @param chatRequest  
-* @return 响应内容  
-*/  
-@PostMapping(value = "/chat")  
-public String chat(@RequestBody ChatRequest chatRequest) {  
-return dashScopeChatClient.prompt().user(chatRequest.getMessage()).call().content();  
-}  
+    /**  
+     * 简单的交流-一次性返回  
+     *  
+     * @param chatRequest  
+     * @return 响应内容  
+     */  
+    @PostMapping(value = "/chat")  
+    public String chat(@RequestBody ChatRequest chatRequest) {  
+        return  dashScopeChatClient.prompt().user(chatRequest.getMessage()).call().content();  
+    }  
   
-/**  
-* 流式交流 MediaType.TEXT_EVENT_STREAM_VALUE 必须要有的  
-* @param chatRequest  
-* @return  
-*/  
-@PostMapping(value = "/fluxChat",produces = MediaType.TEXT_EVENT_STREAM_VALUE)  
-public Flux<String> fluxChat(@RequestBody ChatRequest chatRequest , HttpServletResponse response) {  
-Flux<String> content = dashScopeChatClient.prompt().user(chatRequest.getMessage())  
-.advisors(advisorSpec -> advisorSpec.param(AbstractChatMemoryAdvisor.CHAT_MEMORY_RETRIEVE_SIZE_KEY,100))  
-.stream().content();  
-return content.concatWith(Flux.just("[complete]"));  
-}  
+    /**  
+     * 流式交流  MediaType.TEXT_EVENT_STREAM_VALUE 必须要有的
+     * @param chatRequest  
+     * @return  
+     */  
+    @PostMapping(value = "/fluxChat",produces = MediaType.TEXT_EVENT_STREAM_VALUE)  
+    public Flux<String> fluxChat(@RequestBody ChatRequest chatRequest , HttpServletResponse response) {  
+        Flux<String> content = dashScopeChatClient.prompt().user(chatRequest.getMessage())  
+                .advisors(advisorSpec -> advisorSpec.param(AbstractChatMemoryAdvisor.CHAT_MEMORY_RETRIEVE_SIZE_KEY,100))  
+                .stream().content();   
+        return content.concatWith(Flux.just("[complete]"));  
+    }  
 }
-
 
 ```
