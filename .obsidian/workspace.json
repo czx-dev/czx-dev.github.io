@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "待整理笔记.md",
+                "file": "ai/接入阿里云百炼.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "待整理笔记"
+              "title": "接入阿里云百炼"
             }
           }
         ],
@@ -186,6 +186,7 @@
   },
   "active": "c61a61f4cf8bc279",
   "lastOpenFiles": [
+    "待整理笔记.md",
     "ai/接入spring-ai-alibaba-starter.md",
     "ai/接入阿里云百炼/ApiFox2.png",
     "ai/接入阿里云百炼/未确认 354011.crdownload",
@@ -200,7 +201,6 @@
     "ai/接入阿里云百炼",
     "ai/新建文件夹",
     "ai/接入阿里云百炼.md",
-    "待整理笔记.md",
     "ai",
     "VMware Workstation 使用.md"
   ]
