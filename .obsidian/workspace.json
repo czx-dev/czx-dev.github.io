@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ai/接入spring-ai-alibaba-starter.md",
+                "file": "待整理笔记.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "接入spring-ai-alibaba-starter"
+              "title": "待整理笔记"
             }
           }
         ],
@@ -180,11 +180,13 @@
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c61a61f4cf8bc279",
+  "active": "ac88cfcd1013aa4d",
   "lastOpenFiles": [
+    "ai/接入阿里云百炼.md",
     "待整理笔记.md",
     "ai/接入spring-ai-alibaba-starter.md",
     "ai",
