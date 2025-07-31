@@ -25,7 +25,7 @@ spring:
 #尚方获取的api_key 注意空间  
 			api-key: *********  
 			chat:  
-options:  
+				options:  
 #模型名称  
 model: qwen-max
 ```
