@@ -20,7 +20,7 @@
 spring:  
 	ai:  
 		dashscope:  
-		agent:  
+			agent:  
 app-id: ##########  
 #尚方获取的api_key 注意空间  
 api-key: *********  
