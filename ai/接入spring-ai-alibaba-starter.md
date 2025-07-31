@@ -15,4 +15,4 @@
 ```
 注意： 如果是项目升级的话 一定要确认好 spring-cloud-alibaba-dependencies 的版本 要不会出现下方问题
 4. 配置文件
-5. 
+[![](https://czx-dev.github.io/2025/03/07/ai/%E6%8E%A5%E5%85%A5%E9%98%BF%E9%87%8C%E4%BA%91%E7%99%BE%E7%82%BC/845b98c7f475db956ac30f6fb1b4c23.png)](https://czx-dev.github.io/2025/03/07/ai/%E6%8E%A5%E5%85%A5%E9%98%BF%E9%87%8C%E4%BA%91%E7%99%BE%E7%82%BC/845b98c7f475db956ac30f6fb1b4c23.png)
