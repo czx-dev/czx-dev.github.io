@@ -20,7 +20,7 @@
   "autoBackupAfterFileChange": true,
   "treeStructure": false,
   "refreshSourceControl": true,
-  "basePath": "https://gitee.com/czx865199614/note_source.git",
+  "basePath": "https://github.com/czx-dev/czx-dev.github.io.git",
   "differentIntervalCommitAndPush": true,
   "changedFilesInStatusBar": false,
   "showedMobileNotice": true,
