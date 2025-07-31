@@ -23,8 +23,8 @@ spring:
 			agent:  
 				app-id: ##########  
 #尚方获取的api_key 注意空间  
-		api-key: *********  
-chat:  
+			api-key: *********  
+			chat:  
 options:  
 #模型名称  
 model: qwen-max
