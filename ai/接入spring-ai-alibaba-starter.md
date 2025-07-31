@@ -27,5 +27,5 @@ spring:
 			chat:  
 				options:  
 #模型名称  
-model: qwen-max
+					model: qwen-max
 ```
