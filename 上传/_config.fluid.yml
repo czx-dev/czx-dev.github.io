@@ -15,7 +15,10 @@
 # 全局
 # Global
 #---------------------------
-
+deploy:
+  type: git
+  repo: https://github.com/czx-dev/czx-dev.github.io
+  branch: main
 # 用于浏览器标签的图标
 # Icon for browser tab
 favicon: /img/fluid.png
