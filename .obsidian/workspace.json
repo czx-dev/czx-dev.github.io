@@ -184,8 +184,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c61a61f4cf8bc279",
+  "active": "ac88cfcd1013aa4d",
   "lastOpenFiles": [
+    "未命名",
     "上传/_config.fluid.yml",
     "上传/_config.fluid.yml.yml",
     "上传/_config.yml",
@@ -196,7 +197,6 @@
     "上传/node_modules/hexo-theme-fluid/languages/zh-TW.yml",
     "上传/node_modules/hexo-theme-fluid/languages/zh-HK.yml",
     "上传/node_modules/hexo-theme-fluid/languages/zh-CN.yml",
-    "上传/node_modules/hexo-theme-fluid/languages/ru.yml",
     "上传/node_modules/hexo-theme-fluid/README.md",
     "上传/node_modules/hexo-theme-fluid/source/img/police_beian.png",
     "上传/node_modules/hexo-theme-fluid/source/img/loading.gif",
