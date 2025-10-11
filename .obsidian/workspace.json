@@ -11,28 +11,10 @@
             "id": "a85076e509b2e5f8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "VMware Workstation 使用.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "VMware Workstation 使用"
-            }
-          },
-          {
-            "id": "c61a61f4cf8bc279",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "搭建个人博客.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "搭建个人博客"
+              "title": "新标签页"
             }
           },
           {
@@ -82,7 +64,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#新建",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -103,8 +85,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -199,32 +180,35 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "c61a61f4cf8bc279",
+  "active": "ac88cfcd1013aa4d",
   "lastOpenFiles": [
-    "工具/验收文档快速导出.md",
+    "node_modules/commander/typings/index.d.ts",
+    "node_modules/commander/typings",
+    "package-lock.json",
+    "package.json",
+    "node_modules/hexo-theme-fluid/languages/zh-TW.yml",
+    "node_modules/hexo-theme-fluid/languages/zh-HK.yml",
+    "node_modules/hexo-theme-fluid/languages/zh-CN.yml",
+    "node_modules/hexo-theme-fluid/languages/ru.yml",
+    "node_modules/hexo-theme-fluid/languages/ja.yml",
+    "node_modules/hexo-theme-fluid/languages/eo.yml",
+    "node_modules/hexo-theme-fluid/languages/es.yml",
+    "node_modules/nunjucks/README.md",
+    "node_modules/hexo-theme-fluid/source/img/police_beian.png",
+    "node_modules/hexo-theme-fluid/source/img/loading.gif",
+    "node_modules/hexo-theme-fluid/source/img/fluid.png",
+    "node_modules/hexo-theme-fluid/source/img/default.png",
+    "node_modules/hexo-theme-fluid/source/img/avatar.png",
+    "node_modules/asap/README.md",
     "搭建个人博客.md",
+    "工具/验收文档快速导出.md",
     "ai/接入阿里云百炼.md",
-    "工具",
     "ai/接入阿里云百炼/maven.png",
     "ai/接入阿里云百炼/ApiFox2.png",
     "ai/接入阿里云百炼/apiFox1.png",
     "ai/和用友.md",
-    "czx-dev.github.io/links/index.html",
-    "czx-dev.github.io/links",
-    "czx-dev.github.io/js/utils.js",
-    "czx-dev.github.io/js/umami-view.js",
-    "czx-dev.github.io/js/plugins.js",
-    "czx-dev.github.io/js/local-search.js",
-    "czx-dev.github.io/js/leancloud.js",
-    "czx-dev.github.io/js/img-lazyload.js",
-    "czx-dev.github.io/js/events.js",
     "czx-dev.github.io/2025/04/13/ai/ai agent 学习 (一)/Pasted image 20250413110904.png",
     "czx-dev.github.io/2025/03/07/ai/接入阿里云百炼/图片2.png",
-    "czx-dev.github.io/2025/03/07/ai/接入阿里云百炼/图片1.png",
-    "czx-dev.github.io/2025/03/07/ai/接入阿里云百炼/845b98c7f475db956ac30f6fb1b4c23.png",
-    "czx-dev.github.io/img/police_beian.png",
-    "czx-dev.github.io/img/loading.gif",
-    "czx-dev.github.io/img/fluid.png",
     "上传/node_modules/hexo-theme-fluid/README.md",
     "上传/node_modules/asap/README.md",
     "待整理笔记.md",
