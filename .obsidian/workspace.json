@@ -25,12 +25,14 @@
             "id": "c61a61f4cf8bc279",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "ai/接入阿里云百炼/ApiFox2.png"
+                "file": "ai/接入阿里云百炼.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "ApiFox2"
+              "icon": "lucide-file",
+              "title": "接入阿里云百炼"
             }
           }
         ],
@@ -182,8 +184,11 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "c61a61f4cf8bc279",
+  "active": "ac88cfcd1013aa4d",
   "lastOpenFiles": [
+    "文档",
+    "ai/接入阿里云百炼/maven.png",
+    "ai/接入阿里云百炼/ApiFox2.png",
     "ai/接入阿里云百炼/apiFox1.png",
     "ai/接入阿里云百炼.md",
     "ai/和用友.md",
@@ -204,10 +209,7 @@
     "czx-dev.github.io/img/police_beian.png",
     "czx-dev.github.io/img/loading.gif",
     "czx-dev.github.io/img/fluid.png",
-    "czx-dev.github.io/img/default.png",
-    "czx-dev.github.io/img/avatar.png",
     "上传/node_modules/hexo-theme-fluid/README.md",
-    "上传/node_modules/hexo-theme-fluid/source/img/police_beian.png",
     "上传/node_modules/asap/README.md",
     "待整理笔记.md",
     "ai/接入spring-ai-alibaba-starter.md",
