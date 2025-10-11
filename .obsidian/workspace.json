@@ -25,14 +25,12 @@
             "id": "c61a61f4cf8bc279",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "ai/和用友.md",
-                "mode": "source",
-                "source": false
+                "file": "ai/接入阿里云百炼/ApiFox2.png"
               },
-              "icon": "lucide-file",
-              "title": "和用友"
+              "icon": "lucide-image",
+              "title": "ApiFox2"
             }
           }
         ],
@@ -186,7 +184,9 @@
   },
   "active": "c61a61f4cf8bc279",
   "lastOpenFiles": [
+    "ai/接入阿里云百炼/apiFox1.png",
     "ai/接入阿里云百炼.md",
+    "ai/和用友.md",
     "czx-dev.github.io/links/index.html",
     "czx-dev.github.io/links",
     "czx-dev.github.io/js/utils.js",
