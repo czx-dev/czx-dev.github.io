@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "工具/数据库导出成WORD表格.md",
+                "file": "工具/验收文档快速导出.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "数据库导出成WORD表格"
+              "title": "验收文档快速导出"
             }
           }
         ],
@@ -187,7 +187,7 @@
   "active": "c61a61f4cf8bc279",
   "lastOpenFiles": [
     "ai/接入阿里云百炼.md",
-    "工具/数据库导出成WORD表格.md",
+    "工具/验收文档快速导出.md",
     "工具",
     "ai/接入阿里云百炼/maven.png",
     "ai/接入阿里云百炼/ApiFox2.png",
