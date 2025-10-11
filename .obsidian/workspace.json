@@ -182,6 +182,7 @@
   },
   "active": "ac88cfcd1013aa4d",
   "lastOpenFiles": [
+    "_config.fluid.yml",
     "_config.fluid.yml.txt",
     "新建 文本文档.txt",
     "node_modules/commander/typings/index.d.ts",
@@ -192,7 +193,6 @@
     "node_modules/hexo-theme-fluid/languages/zh-HK.yml",
     "node_modules/hexo-theme-fluid/languages/zh-CN.yml",
     "node_modules/hexo-theme-fluid/languages/ru.yml",
-    "node_modules/hexo-theme-fluid/languages/ja.yml",
     "node_modules/nunjucks/README.md",
     "node_modules/hexo-theme-fluid/source/img/police_beian.png",
     "node_modules/hexo-theme-fluid/source/img/loading.gif",
