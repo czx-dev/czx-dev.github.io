@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "hexo-asset-img": "^1.2.0",
     "hexo-theme-fluid": "^1.9.8"
   }
 }
