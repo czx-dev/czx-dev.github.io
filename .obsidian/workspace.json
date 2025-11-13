@@ -11,13 +11,30 @@
             "id": "a85076e509b2e5f8",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "搭建个人博客.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "搭建个人博客"
+            }
+          },
+          {
+            "id": "5db98573a14a3070",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.9.14"
+              },
+              "icon": "lucide-book-up",
+              "title": "版本说明 1.9.14"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -156,6 +173,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:创建新数据库": false,
       "obsidian-git:Open Git source control": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
@@ -165,12 +183,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "ac88cfcd1013aa4d",
+  "active": "5db98573a14a3070",
   "lastOpenFiles": [
+    "node_modules/hexo-asset-img/README_zh.md",
     "node_modules/nunjucks/README.md",
     "搭建个人博客.md",
     "node_modules/hexo-asset-img/README.md",
-    "node_modules/hexo-asset-img/README_zh.md",
     "node_modules/hexo-asset-img/package.json",
     "node_modules/hexo-asset-img/index.js",
     "node_modules/hexo-asset-img/LICENSE",
