@@ -39,12 +39,14 @@
             "id": "e7bb189def28b2e6",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.10.3"
+                "file": "2025-11-25.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "版本说明 1.10.3"
+              "icon": "lucide-file",
+              "title": "2025-11-25"
             }
           }
         ],
@@ -199,6 +201,8 @@
   },
   "active": "e7bb189def28b2e6",
   "lastOpenFiles": [
+    "未命名.canvas",
+    "2025-11-25.md",
     "ai/接入阿里云百炼/apiFox1.png",
     "node_modules/hexo-asset-img/README_zh.md",
     "node_modules/nunjucks/README.md",
