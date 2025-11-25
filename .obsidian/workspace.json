@@ -25,16 +25,30 @@
             "id": "5db98573a14a3070",
             "type": "leaf",
             "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ai/接入阿里云百炼.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "接入阿里云百炼"
+            }
+          },
+          {
+            "id": "e7bb189def28b2e6",
+            "type": "leaf",
+            "state": {
               "type": "release-notes",
               "state": {
-                "currentVersion": "1.9.14"
+                "currentVersion": "1.10.3"
               },
               "icon": "lucide-book-up",
-              "title": "版本说明 1.9.14"
+              "title": "版本说明 1.10.3"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -183,8 +197,9 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "5db98573a14a3070",
+  "active": "e7bb189def28b2e6",
   "lastOpenFiles": [
+    "ai/接入阿里云百炼/apiFox1.png",
     "node_modules/hexo-asset-img/README_zh.md",
     "node_modules/nunjucks/README.md",
     "搭建个人博客.md",
@@ -209,7 +224,6 @@
     "ai/接入阿里云百炼.md",
     "ai/接入阿里云百炼/maven.png",
     "ai/接入阿里云百炼/ApiFox2.png",
-    "ai/接入阿里云百炼/apiFox1.png",
     "ai/和用友.md",
     "czx-dev.github.io/2025/04/13/ai/ai agent 学习 (一)/Pasted image 20250413110904.png",
     "czx-dev.github.io/2025/03/07/ai/接入阿里云百炼/图片2.png",
